@@ -1,22 +1,20 @@
 /* =========================================================
    QIAC ACADEMY
    STUDENT ATTENDANCE DATA
-   Step 6.1
-   =========================================================
+   File: data/attendance.js
+
+   Attendance connects:
+   Students → Courses → Teachers
 
    IMPORTANT:
-   Attendance uses the same IDs already defined
-   in Steps 4–5.
-
-   studentId  → data/students.js
-   courseId   → data/courses.js
-   teacherId  → data/teachers.js
+   courseId and teacherId MUST match
+   data/courses.js and data/teachers.js
    ========================================================= */
 
 const QIAC_ATTENDANCE = [
 
     /* =====================================================
-       STUDENT: STU-001
+       STUDENT STU-001
        CLASS 9
        ===================================================== */
 
@@ -94,7 +92,7 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-002
+       STUDENT STU-002
        CLASS 9
        ===================================================== */
 
@@ -136,7 +134,7 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-003
+       STUDENT STU-003
        CLASS 9
        ===================================================== */
 
@@ -178,7 +176,7 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-004
+       STUDENT STU-004
        CLASS 10
        ===================================================== */
 
@@ -220,7 +218,7 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-005
+       STUDENT STU-005
        CLASS 10
        ===================================================== */
 
@@ -262,7 +260,7 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-006
+       STUDENT STU-006
        F.Sc PRE-ENGINEERING
        ===================================================== */
 
@@ -304,15 +302,16 @@ const QIAC_ATTENDANCE = [
 
 
     /* =====================================================
-       STUDENT: STU-007
+       STUDENT STU-007
        F.Sc PRE-MEDICAL
+       Biology → Teacher D
        ===================================================== */
 
     {
         id: "ATT-029",
         studentId: "STU-007",
-        courseId: "QIAC-FSC-PM-MATH",
-        teacherId: "T-A",
+        courseId: "QIAC-FSC-PM-BIO",
+        teacherId: "T-D",
         date: "2026-09-01",
         status: "Present"
     },
@@ -320,8 +319,8 @@ const QIAC_ATTENDANCE = [
     {
         id: "ATT-030",
         studentId: "STU-007",
-        courseId: "QIAC-FSC-PM-MATH",
-        teacherId: "T-A",
+        courseId: "QIAC-FSC-PM-BIO",
+        teacherId: "T-D",
         date: "2026-09-02",
         status: "Present"
     },
@@ -329,8 +328,8 @@ const QIAC_ATTENDANCE = [
     {
         id: "ATT-031",
         studentId: "STU-007",
-        courseId: "QIAC-FSC-PM-MATH",
-        teacherId: "T-A",
+        courseId: "QIAC-FSC-PM-BIO",
+        teacherId: "T-D",
         date: "2026-09-03",
         status: "Present"
     },
@@ -338,8 +337,8 @@ const QIAC_ATTENDANCE = [
     {
         id: "ATT-032",
         studentId: "STU-007",
-        courseId: "QIAC-FSC-PM-MATH",
-        teacherId: "T-A",
+        courseId: "QIAC-FSC-PM-BIO",
+        teacherId: "T-D",
         date: "2026-09-04",
         status: "Present"
     }
