@@ -8,16 +8,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <title>Academic Programs | QIAC Academy</title>
+
     <meta name="description"
-          content="Explore academic programs and courses offered by QIAC Academy, Bani Gala, Islamabad.">
+          content="Explore academic programs at Quaid-i-Azam Coaching Academy, Bani Gala, Islamabad.">
 
-    <title>
-        Courses & Academic Programs | QIAC Academy
-    </title>
-
-
-    <!-- Fonts -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -25,13 +21,10 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
 
-
-    <!-- CSS -->
-
+    <!-- Global CSS -->
     <link rel="stylesheet"
           href="../assets/css/style.css">
 
@@ -41,6 +34,7 @@
     <link rel="stylesheet"
           href="../assets/css/footer.css">
 
+    <!-- Courses CSS -->
     <link rel="stylesheet"
           href="../assets/css/courses.css">
 
@@ -50,504 +44,465 @@
 <body>
 
 
-    <!-- Shared Navbar -->
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
 
-    <div id="navbar-container"></div>
-
-
-
-    <main>
+<div id="navbar-container"></div>
 
 
-        <!-- =================================================
-             COURSES HERO
-        ================================================== -->
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
-        <section class="courses-hero">
+<section class="courses-hero">
 
-            <div class="courses-hero-grid"></div>
+    <div class="courses-hero-overlay"></div>
 
-            <div class="container">
+    <div class="container courses-hero-content">
 
-                <div class="courses-hero-content">
+        <div class="hero-label">
+            QIAC ACADEMY • ACADEMIC PROGRAMS
+        </div>
 
-                    <span class="section-label">
-                        ACADEMIC PROGRAMS
-                    </span>
+        <h1>
+            Learn With Purpose.<br>
+            <span>Prepare With Confidence.</span>
+        </h1>
 
-                    <h1>
+        <p>
+            Structured academic programs designed to strengthen
+            concepts, develop problem-solving skills, and prepare
+            students for academic success.
+        </p>
 
-                        Learn With Purpose.
-                        <span>Prepare With Confidence.</span>
+        <div class="hero-actions">
 
-                    </h1>
+            <a href="#programs"
+               class="btn btn-gold">
+                Explore Programs
+            </a>
 
-                    <p>
+            <a href="contact.html"
+               class="btn btn-outline-light">
+                Enquire About Admissions
+            </a>
 
-                        Structured academic programs designed
-                        around conceptual learning, continuous
-                        practice and measurable student progress.
+        </div>
 
-                    </p>
+    </div>
+
+</section>
 
 
-                    <div class="courses-hero-actions">
+<!-- =====================================================
+     PROGRAMS
+     ===================================================== -->
 
-                        <a href="contact.html"
-                           class="btn btn-gold">
+<section class="section courses-section"
+         id="programs">
 
-                            Enquire About Admissions
+    <div class="container">
 
-                        </a>
 
-                        <a href="#programs"
-                           class="hero-text-link">
+        <div class="section-heading">
 
-                            Explore Programs ↓
+            <div class="section-label">
+                ACADEMIC PROGRAMS
+            </div>
 
-                        </a>
+            <h2>
+                Choose Your <span>Program</span>
+            </h2>
 
-                    </div>
+            <p>
+                Select your class and subject to explore the
+                academic courses available at QIAC Academy.
+            </p>
 
-                </div>
+        </div>
+
+
+        <!-- CLASS FILTER -->
+
+        <div class="filter-wrapper">
+
+            <div class="filter-title">
+                Select Class
+            </div>
+
+            <div class="class-filters">
+
+                <button class="class-filter active"
+                        data-class="all">
+                    All Programs
+                </button>
+
+                <button class="class-filter"
+                        data-class="Class 9">
+                    Class 9
+                </button>
+
+                <button class="class-filter"
+                        data-class="Class 10">
+                    Class 10
+                </button>
+
+                <button class="class-filter"
+                        data-class="F.Sc">
+                    F.Sc
+                </button>
 
             </div>
 
-        </section>
+        </div>
 
 
+        <!-- F.SC GROUP -->
 
-        <!-- =================================================
-             PROGRAM FILTER
-        ================================================== -->
+        <div class="fsc-group-wrapper"
+             id="fscGroupWrapper">
 
-        <section class="program-section section"
-                 id="programs">
+            <div class="filter-title">
+                Select F.Sc Group
+            </div>
 
-            <div class="container">
+            <div class="group-filters">
 
+                <button class="group-filter active"
+                        data-group="all">
+                    All Groups
+                </button>
 
-                <div class="section-heading">
+                <button class="group-filter"
+                        data-group="Pre-Engineering">
+                    Pre-Engineering
+                </button>
 
-                    <span class="section-label">
-                        FIND YOUR PROGRAM
-                    </span>
-
-                    <h2>
-                        Academic
-                        <span>Programs</span>
-                    </h2>
-
-                    <p>
-
-                        Select a class or program to explore
-                        the subjects available at QIAC Academy.
-
-                    </p>
-
-                </div>
-
-
-                <div class="program-filter">
-
-                    <button
-                        class="program-filter-btn active"
-                        data-filter="all">
-
-                        All Programs
-
-                    </button>
-
-
-                    <button
-                        class="program-filter-btn"
-                        data-filter="9th Class">
-
-                        9th Class
-
-                    </button>
-
-
-                    <button
-                        class="program-filter-btn"
-                        data-filter="10th Class">
-
-                        10th Class
-
-                    </button>
-
-
-                    <button
-                        class="program-filter-btn"
-                        data-filter="F.Sc">
-
-                        F.Sc
-
-                    </button>
-
-
-                    <button
-                        class="program-filter-btn"
-                        data-filter="Entry Test">
-
-                        Entry Test
-
-                    </button>
-
-                </div>
-
-
-                <div id="courseGrid"
-                     class="course-grid">
-
-                    <!-- JavaScript renders courses here -->
-
-                </div>
-
-
-                <div id="courseEmpty"
-                     class="course-empty">
-
-                    <h3>
-                        No courses found
-                    </h3>
-
-                    <p>
-                        Please select another program.
-                    </p>
-
-                </div>
+                <button class="group-filter"
+                        data-group="Pre-Medical">
+                    Pre-Medical
+                </button>
 
             </div>
 
-        </section>
+        </div>
 
 
+        <!-- SUBJECT FILTER -->
 
-        <!-- =================================================
-             ACADEMIC MODEL
-        ================================================== -->
+        <div class="subject-filter-wrapper">
 
-        <section class="academic-model section">
+            <div class="filter-title">
+                Select Subject
+            </div>
 
-            <div class="container">
+            <div class="subject-filters"
+                 id="subjectFilters">
 
-
-                <div class="academic-model-grid">
-
-
-                    <div class="academic-model-content">
-
-                        <span class="section-label">
-                            OUR APPROACH
-                        </span>
-
-                        <h2>
-
-                            A Structured Path
-                            From Learning to
-                            <span>Achievement.</span>
-
-                        </h2>
-
-                        <p>
-
-                            Every QIAC course is designed to
-                            connect teaching, practice and
-                            assessment into one continuous
-                            learning process.
-
-                        </p>
-
-                        <p>
-
-                            This model allows students and
-                            parents to understand not only
-                            what is being taught, but also
-                            how academic progress is measured.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="academic-model-steps">
-
-
-                        <div class="model-step">
-
-                            <span>
-                                01
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Learn
-                                </h3>
-
-                                <p>
-                                    Daily conceptual lectures
-                                    and guided instruction.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="model-step">
-
-                            <span>
-                                02
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Practice
-                                </h3>
-
-                                <p>
-                                    Assignments, exercises
-                                    and problem solving.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="model-step">
-
-                            <span>
-                                03
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Assess
-                                </h3>
-
-                                <p>
-                                    Tests and continuous
-                                    academic assessment.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="model-step">
-
-                            <span>
-                                04
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Improve
-                                </h3>
-
-                                <p>
-                                    Feedback and targeted
-                                    academic support.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <!-- Generated by JavaScript -->
 
             </div>
 
-        </section>
+        </div>
 
 
+        <!-- COURSE COUNT -->
 
-        <!-- =================================================
-             COURSE PORTAL CONNECTION
-        ================================================== -->
+        <div class="course-results-bar">
 
-        <section class="course-portal">
+            <span id="courseCount">
+                Showing all programs
+            </span>
 
-            <div class="container">
+        </div>
+
+
+        <!-- COURSE GRID -->
+
+        <div class="courses-grid"
+             id="coursesGrid">
+
+            <!-- Generated by JavaScript -->
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="courses-empty"
+             id="coursesEmpty">
+
+            <div class="empty-icon">
+                ◌
+            </div>
+
+            <h3>
+                No Courses Found
+            </h3>
+
+            <p>
+                Try selecting another class, group, or subject.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACADEMIC MODEL
+     ===================================================== -->
+
+<section class="section academic-model">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                OUR APPROACH
+            </div>
+
+            <h2>
+                A Complete <span>Learning Cycle</span>
+            </h2>
+
+            <p>
+                QIAC Academy connects teaching, practice,
+                assessment, and improvement into one academic
+                journey.
+            </p>
+
+        </div>
+
+
+        <div class="learning-cycle">
+
+
+            <div class="learning-step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div class="step-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Learn
+                </h3>
+
+                <p>
+                    Build strong conceptual foundations through
+                    structured classroom and digital lectures.
+                </p>
+
+            </div>
+
+
+            <div class="learning-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div class="step-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Practice
+                </h3>
+
+                <p>
+                    Strengthen understanding through exercises,
+                    assignments, and problem-solving.
+                </p>
+
+            </div>
+
+
+            <div class="learning-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div class="step-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Assess
+                </h3>
+
+                <p>
+                    Measure progress through tests, quizzes,
+                    assignments, and regular assessments.
+                </p>
+
+            </div>
+
+
+            <div class="learning-step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <div class="step-icon">
+                    ↗
+                </div>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+                    Use feedback and performance insights to
+                    continuously improve academic outcomes.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DIGITAL ACADEMY
+     ===================================================== -->
+
+<section class="digital-academy">
+
+    <div class="container">
+
+        <div class="digital-academy-card">
+
+            <div class="digital-content">
+
+                <div class="section-label">
+                    DIGITAL ACADEMY
+                </div>
+
+                <h2>
+                    Your Course.
+                    <span>Your Lectures.</span>
+                    Your Progress.
+                </h2>
+
+                <p>
+                    Every course is designed to connect with
+                    QIAC Academy's digital learning system,
+                    allowing students to access lectures,
+                    notes, assignments, assessments, attendance,
+                    and performance information.
+                </p>
+
+                <a href="lectures.html"
+                   class="btn btn-gold">
+                    Explore Daily Lectures
+                </a>
+
+            </div>
+
+
+            <div class="digital-visual">
 
                 <div class="portal-card">
 
-                    <div class="portal-content">
-
-                        <span>
-                            QIAC DIGITAL ACADEMY
-                        </span>
-
-                        <h2>
-                            Your Course.
-                            Your Lectures.
-                            Your Progress.
-                        </h2>
-
-                        <p>
-
-                            Students will be able to access
-                            daily lectures, notes, assignments
-                            and assessment information through
-                            the QIAC academic portal.
-
-                        </p>
-
-
-                        <div class="portal-actions">
-
-                            <a href="lectures.html"
-                               class="btn btn-gold">
-
-                                View Daily Lectures
-
-                            </a>
-
-                            <a href="assessments.html"
-                               class="portal-link">
-
-                                Student Progress →
-
-                            </a>
-
-                        </div>
-
+                    <div class="portal-top">
+                        QIAC STUDENT PORTAL
                     </div>
 
+                    <div class="portal-stat">
+                        <strong>Lectures</strong>
+                        <span>Daily Learning</span>
+                    </div>
 
-                    <div class="portal-visual">
+                    <div class="portal-stat">
+                        <strong>Assessments</strong>
+                        <span>Track Performance</span>
+                    </div>
 
-                        <div class="portal-screen">
-
-                            <div class="screen-header">
-
-                                <span>
-                                    QIAC ACADEMY
-                                </span>
-
-                                <small>
-                                    COURSE PORTAL
-                                </small>
-
-                            </div>
-
-
-                            <div class="screen-row">
-
-                                <span>
-                                    Course
-                                </span>
-
-                                <strong>
-                                    Mathematics
-                                </strong>
-
-                            </div>
-
-
-                            <div class="screen-row">
-
-                                <span>
-                                    Lectures
-                                </span>
-
-                                <strong>
-                                    Daily
-                                </strong>
-
-                            </div>
-
-
-                            <div class="screen-row">
-
-                                <span>
-                                    Assessment
-                                </span>
-
-                                <strong>
-                                    Active
-                                </strong>
-
-                            </div>
-
-                        </div>
-
+                    <div class="portal-stat">
+                        <strong>Progress</strong>
+                        <span>Improve Results</span>
                     </div>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
 
-        <!-- =================================================
-             CTA
-        ================================================== -->
+<section class="section courses-cta">
 
-        <section class="courses-cta">
+    <div class="container">
 
-            <div class="container">
+        <div class="cta-content">
 
-                <div class="courses-cta-content">
-
-                    <span>
-                        START YOUR JOURNEY
-                    </span>
-
-                    <h2>
-                        Ready to Learn
-                        at QIAC?
-                    </h2>
-
-                    <p>
-
-                        Contact us to learn more about our
-                        academic programs and admissions.
-
-                    </p>
-
-
-                    <a href="contact.html"
-                       class="btn btn-gold">
-
-                        Contact QIAC Academy
-
-                    </a>
-
-                </div>
-
+            <div class="section-label">
+                JOIN QIAC ACADEMY
             </div>
 
-        </section>
+            <h2>
+                Build Strong Foundations.
+                <span>Achieve More.</span>
+            </h2>
 
-    </main>
+            <p>
+                Explore our academic programs or contact the
+                academy for admission information.
+            </p>
+
+            <a href="contact.html"
+               class="btn btn-gold">
+                Contact Academy
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
-    <!-- Shared Footer -->
-
-    <div id="footer-container"></div>
+<div id="footer-container"></div>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 
-    <!-- JavaScript -->
+<script src="../assets/js/components.js"></script>
 
-    <script src="../assets/js/components.js"></script>
+<script src="../data/teachers.js"></script>
 
-    <script src="../data/courses.js"></script>
+<script src="../data/courses.js"></script>
 
-    <script src="../assets/js/courses.js"></script>
+<script src="../assets/js/courses.js"></script>
 
 
 </body>
