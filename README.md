@@ -1,2 +1,0 @@
-# qiacAcadmey
-A educational website 
