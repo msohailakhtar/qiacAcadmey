@@ -287,3 +287,53 @@ function setCurrentYear() {
     }
 
 }
+
+
+/* =========================================================
+   NORMALIZE NAVIGATION PATHS
+========================================================= */
+
+function normalizeNavigationPaths() {
+
+    const isInsidePages =
+        window.location.pathname.includes("/pages/");
+
+
+    const links =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    links.forEach(link => {
+
+        const href =
+            link.getAttribute("href");
+
+
+        if (!href) {
+            return;
+        }
+
+
+        if (isInsidePages) {
+
+            if (href === "index.html") {
+
+                link.href = "../index.html";
+
+            }
+            else if (
+                href.startsWith("pages/")
+            ) {
+
+                link.href =
+                    "../" + href;
+
+            }
+
+        }
+
+    });
+
+}
