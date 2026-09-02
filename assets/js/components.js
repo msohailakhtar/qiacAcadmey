@@ -1,7 +1,21 @@
+```javascript
 /* =========================================================
    QIAC ACADEMY
    REUSABLE COMPONENT SYSTEM
-   Version: 2.0
+   Version: 2.1
+
+   Handles:
+   - Navbar
+   - Footer
+   - Mobile navigation
+   - Scroll effect
+   - Active page
+   - Root/pages navigation paths
+========================================================= */
+
+
+/* =========================================================
+   INITIALIZE COMPONENT SYSTEM
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -14,8 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.pathname.includes("/pages/");
 
 
+    /*
+     * Component directory
+     */
+
     const componentPath =
-        isInsidePages ? "../components/" : "components/";
+        isInsidePages
+            ? "../components/"
+            : "components/";
 
 
     /* -----------------------------------------------------
@@ -39,12 +59,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     /* -----------------------------------------------------
-       INITIALIZE
+       NORMALIZE NAVIGATION PATHS
+       
+       IMPORTANT:
+       This MUST happen after navbar.html is loaded.
+    ----------------------------------------------------- */
+
+    normalizeNavigationPaths();
+
+
+    /* -----------------------------------------------------
+       INITIALIZE NAVBAR
     ----------------------------------------------------- */
 
     initializeNavbar();
 
+
+    /* -----------------------------------------------------
+       CURRENT YEAR
+    ----------------------------------------------------- */
+
     setCurrentYear();
+
+
+    /* -----------------------------------------------------
+       ACTIVE PAGE
+    ----------------------------------------------------- */
 
     setActivePage();
 
@@ -85,7 +125,8 @@ async function loadComponent(elementId, filePath) {
             await response.text();
 
 
-        container.innerHTML = html;
+        container.innerHTML =
+            html;
 
 
     } catch (error) {
@@ -109,8 +150,10 @@ function initializeNavbar() {
     const menuButton =
         document.getElementById("mobileMenuBtn");
 
+
     const navLinks =
         document.getElementById("navLinks");
+
 
     const header =
         document.querySelector(".site-header");
@@ -127,7 +170,9 @@ function initializeNavbar() {
             () => {
 
                 const isOpen =
-                    navLinks.classList.toggle("show");
+                    navLinks.classList.toggle(
+                        "show"
+                    );
 
 
                 menuButton.classList.toggle(
@@ -145,7 +190,9 @@ function initializeNavbar() {
         );
 
 
-        /* Close menu after navigation */
+        /* -------------------------------------------------
+           CLOSE MOBILE MENU AFTER NAVIGATION
+        ------------------------------------------------- */
 
         navLinks
             .querySelectorAll("a")
@@ -203,8 +250,16 @@ function initializeNavbar() {
         };
 
 
+        /*
+         * Run once immediately
+         */
+
         handleScroll();
 
+
+        /*
+         * Then monitor scrolling
+         */
 
         window.addEventListener(
             "scroll",
@@ -243,22 +298,62 @@ function setActivePage() {
         }
 
 
+        /*
+         * Convert the link into an absolute URL
+         * so comparison works from both root and /pages/
+         */
+
         const linkPath =
             new URL(
                 href,
-                window.location.origin
+                window.location.href
             ).pathname;
 
 
+        /*
+         * Remove active class first
+         * in case this function is called again.
+         */
+
+        link.classList.remove(
+            "active"
+        );
+
+
+        /*
+         * Exact page match
+         */
+
         if (
-            linkPath === currentPath ||
+            linkPath === currentPath
+        ) {
+
+            link.classList.add(
+                "active"
+            );
+
+        }
+
+
+        /*
+         * Root index handling
+         */
+
+        else if (
             (
-                currentPath.endsWith("/") &&
-                linkPath.endsWith("/index.html")
+                currentPath === "/" ||
+                currentPath.endsWith("/")
+            )
+            &&
+            (
+                linkPath === "/index.html" ||
+                linkPath === "/"
             )
         ) {
 
-            link.classList.add("active");
+            link.classList.add(
+                "active"
+            );
 
         }
 
@@ -295,9 +390,19 @@ function setCurrentYear() {
 
 function normalizeNavigationPaths() {
 
-    const isInsidePages =
-        window.location.pathname.includes("/pages/");
+    /*
+     * Check whether current page is inside /pages/
+     */
 
+    const isInsidePages =
+        window.location.pathname.includes(
+            "/pages/"
+        );
+
+
+    /*
+     * Get all navbar links
+     */
 
     const links =
         document.querySelectorAll(
@@ -316,19 +421,55 @@ function normalizeNavigationPaths() {
         }
 
 
+        /*
+         * -------------------------------------------------
+         * PAGE INSIDE /pages/
+         * -------------------------------------------------
+         */
+
         if (isInsidePages) {
 
-            if (href === "index.html") {
 
-                link.href = "../index.html";
+            /*
+             * Home
+             *
+             * index.html
+             * ↓
+             * ../index.html
+             */
 
-            }
-            else if (
-                href.startsWith("pages/")
+            if (
+                href === "index.html"
             ) {
 
-                link.href =
-                    "../" + href;
+                link.setAttribute(
+                    "href",
+                    "../index.html"
+                );
+
+            }
+
+
+            /*
+             * Other pages
+             *
+             * pages/about.html
+             * ↓
+             * ../about.html
+             */
+
+            else if (
+                href.startsWith(
+                    "pages/"
+                )
+            ) {
+
+                link.setAttribute(
+                    "href",
+                    href.substring(
+                        "pages/".length
+                    )
+                );
 
             }
 
@@ -337,3 +478,4 @@ function normalizeNavigationPaths() {
     });
 
 }
+```
