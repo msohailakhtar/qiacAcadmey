@@ -1,0 +1,1294 @@
+/* =========================================================
+   QIAC ACADEMY
+   STUDENT ATTENDANCE PORTAL
+   File: assets/css/attendance.css
+
+   Step 6.1 — Part 3
+
+   Theme:
+   Premium Academic
+   Navy • White • Gold
+
+   Works with:
+   pages/attendance.html
+   data/attendance.js
+   assets/js/attendance.js
+   ========================================================= */
+
+
+/* =========================================================
+   ATTENDANCE HERO
+   ========================================================= */
+
+.attendance-hero {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-900),
+            var(--navy-800)
+        );
+}
+
+
+/* Decorative background */
+
+.attendance-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -180px;
+    top: -180px;
+
+    border: 1px solid rgba(201, 162, 39, 0.22);
+
+    border-radius: 50%;
+}
+
+
+.attendance-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: -180px;
+    bottom: -180px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+}
+
+
+/* Hero overlay */
+
+.attendance-hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(201, 162, 39, 0.10),
+            transparent 30%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Hero content */
+
+.attendance-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 90px 0;
+}
+
+
+.attendance-hero .section-label {
+    display: inline-block;
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 18px;
+}
+
+
+.attendance-hero h1 {
+    max-width: 850px;
+
+    margin: 0 0 22px;
+
+    color: white;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 6vw, 68px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1px;
+}
+
+
+.attendance-hero h1 span {
+    color: var(--gold-light);
+}
+
+
+.attendance-hero p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+
+/* =========================================================
+   ATTENDANCE PAGE
+   ========================================================= */
+
+.attendance-page {
+    background: var(--off-white);
+
+    min-height: 500px;
+}
+
+
+
+/* =========================================================
+   STUDENT SELECTOR
+   ========================================================= */
+
+.attendance-selector-section {
+    position: relative;
+
+    margin-top: -55px;
+
+    z-index: 5;
+}
+
+
+.attendance-selector-card {
+    display: grid;
+
+    grid-template-columns: 1fr 360px;
+
+    gap: 50px;
+
+    align-items: center;
+
+    padding: 32px 36px;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* Selector text */
+
+.selector-content {
+    min-width: 0;
+}
+
+
+.selector-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.selector-content h2 {
+    margin: 0 0 8px;
+
+    color: var(--navy-900);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+}
+
+
+.selector-content p {
+    max-width: 520px;
+
+    margin: 0;
+
+    color: var(--gray-500);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* Selector control */
+
+.selector-control {
+    width: 100%;
+}
+
+
+.selector-control label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--navy-900);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+.selector-control select {
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--navy-900);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.selector-control select:hover {
+    border-color: var(--gold-light);
+}
+
+
+.selector-control select:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(201, 162, 39, 0.12);
+}
+
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.attendance-empty-section {
+    padding: 70px 0 100px;
+}
+
+
+.attendance-empty-card {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 70px 40px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.empty-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(201, 162, 39, 0.10);
+
+    color: var(--gold);
+
+    font-size: 26px;
+}
+
+
+.attendance-empty-card h2 {
+    margin: 0 0 10px;
+
+    color: var(--navy-900);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+}
+
+
+.attendance-empty-card p {
+    margin: 0;
+
+    color: var(--gray-500);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.attendance-dashboard-section {
+    padding: 65px 0 100px;
+}
+
+
+
+/* =========================================================
+   STUDENT ATTENDANCE HEADER
+   ========================================================= */
+
+.student-attendance-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 30px 32px;
+
+    margin-bottom: 28px;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.student-overline {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.student-attendance-info h2 {
+    margin: 0 0 10px;
+
+    color: var(--navy-900);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+}
+
+
+.student-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    color: var(--gray-500);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.meta-divider {
+    color: var(--gray-200);
+}
+
+
+.student-status-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(34, 197, 94, 0.10);
+
+    color: #15803d;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+
+/* =========================================================
+   ATTENDANCE STATISTICS
+   ========================================================= */
+
+.attendance-stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 90px;
+}
+
+
+.attendance-stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 24px;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.attendance-stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.stat-icon {
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(201, 162, 39, 0.10);
+
+    color: var(--gold);
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+.stat-content {
+    min-width: 0;
+}
+
+
+.stat-content span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--gray-500);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+
+.stat-content strong {
+    display: block;
+
+    color: var(--navy-900);
+
+    font-size: 27px;
+
+    line-height: 1;
+}
+
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.attendance-heading {
+    margin-bottom: 40px;
+}
+
+
+.attendance-heading h2 {
+    margin-bottom: 14px;
+}
+
+
+
+/* =========================================================
+   COURSE-WISE ATTENDANCE
+   ========================================================= */
+
+.attendance-course-section {
+    margin-bottom: 95px;
+}
+
+
+.course-attendance-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.course-attendance-card {
+    position: relative;
+
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 11px;
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.course-attendance-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+.course-attendance-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--gold);
+}
+
+
+.course-card-top {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.course-card-info {
+    min-width: 0;
+}
+
+
+.course-card-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+
+.course-card-info h3 {
+    margin: 0 0 6px;
+
+    color: var(--navy-900);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+}
+
+
+.course-card-teacher {
+    color: var(--gray-500);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.course-attendance-percentage {
+    flex-shrink: 0;
+
+    color: var(--navy-900);
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+.course-attendance-bar {
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    background: var(--gray-200);
+
+    border-radius: 20px;
+}
+
+
+.course-attendance-progress {
+    height: 100%;
+
+    width: 0;
+
+    background: var(--gold);
+
+    border-radius: inherit;
+
+    transition: width .8s ease;
+}
+
+
+.course-attendance-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.course-attendance-detail {
+    padding: 12px;
+
+    background: var(--off-white);
+
+    border-radius: 7px;
+
+    text-align: center;
+}
+
+
+.course-attendance-detail span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--gray-500);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+
+.course-attendance-detail strong {
+    color: var(--navy-900);
+
+    font-size: 15px;
+}
+
+
+
+/* =========================================================
+   ATTENDANCE HISTORY
+   ========================================================= */
+
+.attendance-history-section {
+    margin-bottom: 95px;
+}
+
+
+.attendance-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border: 1px solid var(--gray-200);
+
+    border-radius: 11px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.attendance-table {
+    width: 100%;
+
+    min-width: 700px;
+
+    border-collapse: collapse;
+}
+
+
+.attendance-table th {
+    padding: 17px 20px;
+
+    background: var(--navy-900);
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+.attendance-table td {
+    padding: 17px 20px;
+
+    border-bottom: 1px solid var(--gray-200);
+
+    color: var(--gray-700);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+.attendance-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.attendance-table tbody tr {
+    transition: background .2s ease;
+}
+
+
+.attendance-table tbody tr:hover {
+    background: rgba(201, 162, 39, 0.035);
+}
+
+
+.attendance-course-name {
+    color: var(--navy-900);
+
+    font-weight: 700;
+}
+
+
+.attendance-teacher-name {
+    color: var(--gray-500);
+
+    font-size: 11px;
+}
+
+
+.attendance-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 75px;
+
+    padding: 6px 10px;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+
+.attendance-status.present {
+    background: rgba(34, 197, 94, 0.10);
+
+    color: #15803d;
+}
+
+
+.attendance-status.absent {
+    background: rgba(239, 68, 68, 0.10);
+
+    color: #b91c1c;
+}
+
+
+.attendance-status.late {
+    background: rgba(234, 179, 8, 0.14);
+
+    color: #a16207;
+}
+
+
+
+/* =========================================================
+   ATTENDANCE SUMMARY
+   ========================================================= */
+
+.attendance-summary-section {
+    padding-bottom: 20px;
+}
+
+
+.attendance-summary-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-900),
+            var(--navy-800)
+        );
+
+    border-radius: 13px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+.summary-content {
+    max-width: 650px;
+}
+
+
+.summary-content .section-label {
+    color: var(--gold-light);
+}
+
+
+.summary-content h2 {
+    margin: 12px 0 12px;
+
+    color: white;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+}
+
+
+.summary-content p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.summary-percentage {
+    flex-shrink: 0;
+
+    min-width: 150px;
+
+    padding: 22px;
+
+    border: 1px solid rgba(201, 162, 39, 0.35);
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+.summary-percentage span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.summary-percentage strong {
+    display: block;
+
+    color: white;
+
+    font-size: 36px;
+
+    line-height: 1;
+}
+
+
+
+/* =========================================================
+   HIDDEN ATTRIBUTE
+   ========================================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .attendance-selector-card {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .attendance-stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .course-attendance-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .attendance-summary-card {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .summary-percentage {
+        width: 100%;
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(
+            100% - 28px,
+            1180px
+        );
+    }
+
+
+    /* Hero */
+
+    .attendance-hero {
+        min-height: 400px;
+    }
+
+
+    .attendance-hero-content {
+        padding: 80px 0 70px;
+    }
+
+
+    .attendance-hero h1 {
+        font-size: 40px;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .attendance-hero p {
+        font-size: 13px;
+    }
+
+
+    /* Selector */
+
+    .attendance-selector-section {
+        margin-top: -35px;
+    }
+
+
+    .attendance-selector-card {
+        padding: 25px 22px;
+
+        border-radius: 10px;
+    }
+
+
+    .selector-content h2 {
+        font-size: 27px;
+    }
+
+
+    /* Dashboard */
+
+    .attendance-dashboard-section {
+        padding: 45px 0 70px;
+    }
+
+
+    .student-attendance-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 24px;
+    }
+
+
+    .student-attendance-info h2 {
+        font-size: 28px;
+    }
+
+
+    /* Statistics */
+
+    .attendance-stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-bottom: 65px;
+    }
+
+
+    .attendance-stat-card {
+        padding: 20px;
+    }
+
+
+    /* Course cards */
+
+    .course-attendance-card {
+        padding: 22px;
+    }
+
+
+    .course-card-top {
+        gap: 10px;
+    }
+
+
+    .course-card-info h3 {
+        font-size: 20px;
+    }
+
+
+    .course-attendance-percentage {
+        font-size: 23px;
+    }
+
+
+    .course-attendance-details {
+        gap: 8px;
+    }
+
+
+    /* History */
+
+    .attendance-history-section {
+        margin-bottom: 65px;
+    }
+
+
+    .attendance-table th,
+    .attendance-table td {
+        padding: 14px;
+    }
+
+
+    /* Summary */
+
+    .attendance-summary-card {
+        padding: 32px 25px;
+    }
+
+
+    .summary-content h2 {
+        font-size: 28px;
+    }
+
+
+    .summary-percentage {
+        min-width: 0;
+
+        padding: 20px;
+    }
+
+}
+
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+
+}
