@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Lectures | QIAC Academy</title>
+
+    <meta name="description"
+          content="Daily lectures, videos, notes and assignments at QIAC Academy.">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Global -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="../assets/css/navbar.css">
+
+    <link rel="stylesheet"
+          href="../assets/css/footer.css">
+
+
+    <!-- Lectures -->
+
+    <link rel="stylesheet"
+          href="../assets/css/lectures.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<div id="navbar-container"></div>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="lectures-hero">
+
+    <div class="lectures-hero-glow"></div>
+
+    <div class="container">
+
+        <div class="lectures-hero-content">
+
+            <div class="hero-label">
+                QIAC ACADEMY • DIGITAL LEARNING
+            </div>
+
+            <h1>
+                Daily Lectures.
+                <span>Continuous Learning.</span>
+            </h1>
+
+            <p>
+                Access structured lectures, video lessons,
+                notes, and assignments organized by class,
+                subject, teacher, and course.
+            </p>
+
+            <a href="#lecturePortal"
+               class="btn btn-gold">
+
+                Explore Lectures
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LECTURE PORTAL
+     ===================================================== -->
+
+<section class="section lecture-section"
+         id="lecturePortal">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                DAILY LECTURES PORTAL
+            </div>
+
+            <h2>
+                Find Your <span>Lecture</span>
+            </h2>
+
+            <p>
+                Select a class, subject, teacher, or course
+                to quickly find the required lecture.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <div class="lecture-filters">
+
+
+            <div class="filter-box">
+
+                <label for="classFilter">
+                    Class
+                </label>
+
+                <select id="classFilter">
+
+                    <option value="all">
+                        All Classes
+                    </option>
+
+                    <option value="Class 9">
+                        Class 9
+                    </option>
+
+                    <option value="Class 10">
+                        Class 10
+                    </option>
+
+                    <option value="F.Sc">
+                        F.Sc
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-box">
+
+                <label for="subjectFilter">
+                    Subject
+                </label>
+
+                <select id="subjectFilter">
+
+                    <option value="all">
+                        All Subjects
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-box">
+
+                <label for="teacherFilter">
+                    Teacher
+                </label>
+
+                <select id="teacherFilter">
+
+                    <option value="all">
+                        All Teachers
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-box">
+
+                <label for="groupFilter">
+                    F.Sc Group
+                </label>
+
+                <select id="groupFilter">
+
+                    <option value="all">
+                        All Groups
+                    </option>
+
+                    <option value="Pre-Engineering">
+                        Pre-Engineering
+                    </option>
+
+                    <option value="Pre-Medical">
+                        Pre-Medical
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             RESULTS
+             ================================================= -->
+
+        <div class="lecture-results-bar">
+
+            <span id="lectureCount">
+                Showing lectures
+            </span>
+
+            <button id="resetFilters"
+                    class="reset-button">
+
+                Reset Filters
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             LECTURE GRID
+             ================================================= -->
+
+        <div class="lectures-grid"
+             id="lecturesGrid">
+
+            <!-- JavaScript -->
+
+        </div>
+
+
+        <!-- =================================================
+             EMPTY STATE
+             ================================================= -->
+
+        <div class="lectures-empty"
+             id="lecturesEmpty">
+
+            <div class="empty-icon">
+                ◌
+            </div>
+
+            <h3>
+                No Lectures Found
+            </h3>
+
+            <p>
+                Try changing your filters.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING INFORMATION
+     ===================================================== -->
+
+<section class="lecture-info">
+
+    <div class="container">
+
+        <div class="lecture-info-grid">
+
+
+            <div>
+
+                <div class="section-label">
+                    ACADEMIC RESOURCES
+                </div>
+
+                <h2>
+                    Everything Students Need
+                    <span>In One Place.</span>
+                </h2>
+
+                <p>
+                    Each lecture can provide access to the
+                    corresponding video, lecture notes,
+                    assignment, and course information.
+                </p>
+
+            </div>
+
+
+            <div class="resource-list">
+
+                <div class="resource-item">
+
+                    <span>01</span>
+
+                    <div>
+                        <strong>Video Lecture</strong>
+                        <p>
+                            Watch the recorded lecture online.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <span>02</span>
+
+                    <div>
+                        <strong>Lecture Notes</strong>
+                        <p>
+                            Review the supporting academic material.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <span>03</span>
+
+                    <div>
+                        <strong>Assignment</strong>
+                        <p>
+                            Practice concepts after each lecture.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<div id="footer-container"></div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="../assets/js/components.js"></script>
+
+<script src="../data/teachers.js"></script>
+
+<script src="../data/courses.js"></script>
+
+<script src="../data/lectures.js"></script>
+
+<script src="../assets/js/lectures.js"></script>
+
+
+</body>
+
+</html>
