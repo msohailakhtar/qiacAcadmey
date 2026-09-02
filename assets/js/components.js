@@ -1,20 +1,46 @@
 /* =========================================================
    QIAC ACADEMY
-   REUSABLE COMPONENT LOADER
+   REUSABLE COMPONENT SYSTEM
+   Version: 2.0
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", async () => {
 
+    /*
+     * Determine whether the current page is inside /pages/
+     */
+
+    const isInsidePages =
+        window.location.pathname.includes("/pages/");
+
+
+    const componentPath =
+        isInsidePages ? "../components/" : "components/";
+
+
+    /* -----------------------------------------------------
+       LOAD NAVBAR
+    ----------------------------------------------------- */
+
     await loadComponent(
         "navbar-container",
-        "/components/navbar.html"
+        `${componentPath}navbar.html`
     );
+
+
+    /* -----------------------------------------------------
+       LOAD FOOTER
+    ----------------------------------------------------- */
 
     await loadComponent(
         "footer-container",
-        "/components/footer.html"
+        `${componentPath}footer.html`
     );
 
+
+    /* -----------------------------------------------------
+       INITIALIZE
+    ----------------------------------------------------- */
 
     initializeNavbar();
 
@@ -34,6 +60,7 @@ async function loadComponent(elementId, filePath) {
     const container =
         document.getElementById(elementId);
 
+
     if (!container) {
         return;
     }
@@ -48,7 +75,7 @@ async function loadComponent(elementId, filePath) {
         if (!response.ok) {
 
             throw new Error(
-                `Failed to load ${filePath}`
+                `Unable to load component: ${filePath}`
             );
 
         }
@@ -74,7 +101,7 @@ async function loadComponent(elementId, filePath) {
 
 
 /* =========================================================
-   NAVBAR
+   NAVIGATION
 ========================================================= */
 
 function initializeNavbar() {
@@ -89,7 +116,9 @@ function initializeNavbar() {
         document.querySelector(".site-header");
 
 
-    /* Mobile Menu */
+    /* -----------------------------------------------------
+       MOBILE MENU
+    ----------------------------------------------------- */
 
     if (menuButton && navLinks) {
 
@@ -109,14 +138,14 @@ function initializeNavbar() {
 
                 menuButton.setAttribute(
                     "aria-expanded",
-                    isOpen
+                    String(isOpen)
                 );
 
             }
         );
 
 
-        /* Close after navigation */
+        /* Close menu after navigation */
 
         navLinks
             .querySelectorAll("a")
@@ -126,21 +155,20 @@ function initializeNavbar() {
                     "click",
                     () => {
 
-                        navLinks
-                            .classList
-                            .remove("show");
+                        navLinks.classList.remove(
+                            "show"
+                        );
 
 
-                        menuButton
-                            .classList
-                            .remove("open");
+                        menuButton.classList.remove(
+                            "open"
+                        );
 
 
-                        menuButton
-                            .setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
                     }
                 );
@@ -150,27 +178,37 @@ function initializeNavbar() {
     }
 
 
-    /* Header shadow on scroll */
+    /* -----------------------------------------------------
+       SCROLL EFFECT
+    ----------------------------------------------------- */
 
     if (header) {
 
-        window.addEventListener(
-            "scroll",
-            () => {
+        const handleScroll = () => {
 
-                if (window.scrollY > 20) {
+            if (window.scrollY > 20) {
 
-                    header.classList
-                        .add("scrolled");
+                header.classList.add(
+                    "scrolled"
+                );
 
-                } else {
+            } else {
 
-                    header.classList
-                        .remove("scrolled");
-
-                }
+                header.classList.remove(
+                    "scrolled"
+                );
 
             }
+
+        };
+
+
+        handleScroll();
+
+
+        window.addEventListener(
+            "scroll",
+            handleScroll
         );
 
     }
@@ -200,7 +238,9 @@ function setActivePage() {
             link.getAttribute("href");
 
 
-        if (!href) return;
+        if (!href) {
+            return;
+        }
 
 
         const linkPath =
@@ -213,8 +253,8 @@ function setActivePage() {
         if (
             linkPath === currentPath ||
             (
-                currentPath === "/" &&
-                linkPath === "/index.html"
+                currentPath.endsWith("/") &&
+                linkPath.endsWith("/index.html")
             )
         ) {
 
@@ -233,13 +273,15 @@ function setActivePage() {
 
 function setCurrentYear() {
 
-    const year =
-        document.getElementById("currentYear");
+    const yearElement =
+        document.getElementById(
+            "currentYear"
+        );
 
 
-    if (year) {
+    if (yearElement) {
 
-        year.textContent =
+        yearElement.textContent =
             new Date().getFullYear();
 
     }
