@@ -1,464 +1,384 @@
 /* =========================================================
    QIAC ACADEMY
-   COURSE DATABASE
-   Version: 1.0
+   COURSES DATA
+   File: data/courses.js
 
-   This structure will later feed:
-   - Courses
-   - Daily Lectures
-   - Assignments
-   - Assessments
-   - Attendance
-   - Student Progress
-========================================================= */
+   Course IDs connect:
+   Courses → Lectures → Assignments → Tests
+   → Attendance → Student Progress
+   ========================================================= */
 
 const QIAC_COURSES = [
 
     /* =====================================================
-       9TH CLASS
-    ===================================================== */
+       CLASS 9
+       ===================================================== */
 
     {
         id: "QIAC-9-MATH",
-
-        program: "9th Class",
-
-        programCode: "CLASS-09",
-
+        className: "Class 9",
         subject: "Mathematics",
-
-        shortName: "Mathematics",
-
-        category: "Matric",
-
-        description:
-            "Concept-focused Mathematics coaching designed to strengthen fundamentals, problem-solving skills and examination preparation.",
-
-        teacher: "Faculty Member",
-
-        level: "Secondary",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "∑",
-
-        features: [
-            "Conceptual learning",
-            "Chapter-wise lectures",
-            "Regular assignments",
-            "Test preparation"
-        ]
-
+        teacherId: "T-A",
+        teacherName: "Teacher A",
+        level: "Matric",
+        group: "General",
+        status: "Active"
     },
-
 
     {
         id: "QIAC-9-PHY",
-
-        program: "9th Class",
-
-        programCode: "CLASS-09",
-
+        className: "Class 9",
         subject: "Physics",
-
-        shortName: "Physics",
-
-        category: "Matric",
-
-        description:
-            "Physics coaching focused on concepts, numerical problem solving and strong preparation for board examinations.",
-
-        teacher: "Faculty Member",
-
-        level: "Secondary",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "Φ",
-
-        features: [
-            "Conceptual understanding",
-            "Numerical practice",
-            "Chapter tests",
-            "Board preparation"
-        ]
-
+        teacherId: "T-B",
+        teacherName: "Teacher B",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
     },
-
 
     {
         id: "QIAC-9-CHEM",
-
-        program: "9th Class",
-
-        programCode: "CLASS-09",
-
+        className: "Class 9",
         subject: "Chemistry",
+        teacherId: "T-C",
+        teacherName: "Teacher C",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        shortName: "Chemistry",
+    {
+        id: "QIAC-9-BIO",
+        className: "Class 9",
+        subject: "Biology",
+        teacherId: "T-D",
+        teacherName: "Teacher D",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        category: "Matric",
+    {
+        id: "QIAC-9-ENG",
+        className: "Class 9",
+        subject: "English",
+        teacherId: "T-E",
+        teacherName: "Teacher E",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        description:
-            "Structured Chemistry learning with emphasis on concepts, equations, problem solving and examination preparation.",
+    {
+        id: "QIAC-9-URDU",
+        className: "Class 9",
+        subject: "Urdu",
+        teacherId: "T-F",
+        teacherName: "Teacher F",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        teacher: "Faculty Member",
+    {
+        id: "QIAC-9-CS",
+        className: "Class 9",
+        subject: "Computer Science",
+        teacherId: "T-G",
+        teacherName: "Teacher G",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        level: "Secondary",
+    {
+        id: "QIAC-9-ISL",
+        className: "Class 9",
+        subject: "Islamiat",
+        teacherId: "T-H",
+        teacherName: "Teacher H",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "⚗",
-
-        features: [
-            "Concept building",
-            "Important reactions",
-            "Practice questions",
-            "Regular assessment"
-        ]
-
+    {
+        id: "QIAC-9-PAK",
+        className: "Class 9",
+        subject: "Pakistan Studies",
+        teacherId: "T-I",
+        teacherName: "Teacher I",
+        level: "Matric",
+        group: "General",
+        status: "Active"
     },
 
 
     /* =====================================================
-       10TH CLASS
-    ===================================================== */
+       CLASS 10
+       ===================================================== */
 
     {
         id: "QIAC-10-MATH",
-
-        program: "10th Class",
-
-        programCode: "CLASS-10",
-
+        className: "Class 10",
         subject: "Mathematics",
-
-        shortName: "Mathematics",
-
-        category: "Matric",
-
-        description:
-            "Advanced Mathematics preparation with conceptual teaching, intensive practice and board examination support.",
-
-        teacher: "Faculty Member",
-
-        level: "Secondary",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "∫",
-
-        features: [
-            "Advanced concepts",
-            "Past paper practice",
-            "Chapter tests",
-            "Board preparation"
-        ]
-
+        teacherId: "T-A",
+        teacherName: "Teacher A",
+        level: "Matric",
+        group: "General",
+        status: "Active"
     },
-
 
     {
         id: "QIAC-10-PHY",
-
-        program: "10th Class",
-
-        programCode: "CLASS-10",
-
+        className: "Class 10",
         subject: "Physics",
-
-        shortName: "Physics",
-
-        category: "Matric",
-
-        description:
-            "Comprehensive Physics preparation combining conceptual understanding with numerical and examination practice.",
-
-        teacher: "Faculty Member",
-
-        level: "Secondary",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "⚡",
-
-        features: [
-            "Conceptual lectures",
-            "Numerical problems",
-            "Test preparation",
-            "Past papers"
-        ]
-
+        teacherId: "T-B",
+        teacherName: "Teacher B",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
     },
-
 
     {
         id: "QIAC-10-CHEM",
-
-        program: "10th Class",
-
-        programCode: "CLASS-10",
-
+        className: "Class 10",
         subject: "Chemistry",
+        teacherId: "T-C",
+        teacherName: "Teacher C",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        shortName: "Chemistry",
+    {
+        id: "QIAC-10-BIO",
+        className: "Class 10",
+        subject: "Biology",
+        teacherId: "T-D",
+        teacherName: "Teacher D",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        category: "Matric",
+    {
+        id: "QIAC-10-ENG",
+        className: "Class 10",
+        subject: "English",
+        teacherId: "T-E",
+        teacherName: "Teacher E",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        description:
-            "Complete Chemistry preparation with conceptual lectures, practical understanding and examination-focused practice.",
+    {
+        id: "QIAC-10-URDU",
+        className: "Class 10",
+        subject: "Urdu",
+        teacherId: "T-F",
+        teacherName: "Teacher F",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        teacher: "Faculty Member",
+    {
+        id: "QIAC-10-CS",
+        className: "Class 10",
+        subject: "Computer Science",
+        teacherId: "T-G",
+        teacherName: "Teacher G",
+        level: "Matric",
+        group: "Science",
+        status: "Active"
+    },
 
-        level: "Secondary",
+    {
+        id: "QIAC-10-ISL",
+        className: "Class 10",
+        subject: "Islamiat",
+        teacherId: "T-H",
+        teacherName: "Teacher H",
+        level: "Matric",
+        group: "General",
+        status: "Active"
+    },
 
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "⚗",
-
-        features: [
-            "Conceptual learning",
-            "Important reactions",
-            "MCQ practice",
-            "Board preparation"
-        ]
-
+    {
+        id: "QIAC-10-PAK",
+        className: "Class 10",
+        subject: "Pakistan Studies",
+        teacherId: "T-I",
+        teacherName: "Teacher I",
+        level: "Matric",
+        group: "General",
+        status: "Active"
     },
 
 
     /* =====================================================
-       F.SC
-    ===================================================== */
+       F.SC — PRE-ENGINEERING
+       ===================================================== */
 
     {
-        id: "QIAC-FSC-MATH",
-
-        program: "F.Sc",
-
-        programCode: "FSC",
-
+        id: "QIAC-FSC-PE-MATH",
+        className: "F.Sc",
         subject: "Mathematics",
-
-        shortName: "Mathematics",
-
-        category: "Intermediate",
-
-        description:
-            "Higher-level Mathematics coaching emphasizing conceptual clarity, analytical thinking and examination preparation.",
-
-        teacher: "Faculty Member",
-
+        teacherId: "T-A",
+        teacherName: "Teacher A",
         level: "Intermediate",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "∂",
-
-        features: [
-            "Advanced Mathematics",
-            "Problem solving",
-            "Conceptual lectures",
-            "Test series"
-        ]
-
+        group: "Pre-Engineering",
+        status: "Active"
     },
 
-
     {
-        id: "QIAC-FSC-PHY",
-
-        program: "F.Sc",
-
-        programCode: "FSC",
-
+        id: "QIAC-FSC-PE-PHY",
+        className: "F.Sc",
         subject: "Physics",
-
-        shortName: "Physics",
-
-        category: "Intermediate",
-
-        description:
-            "F.Sc Physics preparation focused on theoretical concepts, numerical problem solving and examination performance.",
-
-        teacher: "Faculty Member",
-
+        teacherId: "T-B",
+        teacherName: "Teacher B",
         level: "Intermediate",
-
-        duration: "Academic Year",
-
-        status: "Active",
-
-        icon: "Ψ",
-
-        features: [
-            "Theory",
-            "Numerical problems",
-            "Concept building",
-            "Assessment"
-        ]
-
+        group: "Pre-Engineering",
+        status: "Active"
     },
 
+    {
+        id: "QIAC-FSC-PE-CHEM",
+        className: "F.Sc",
+        subject: "Chemistry",
+        teacherId: "T-C",
+        teacherName: "Teacher C",
+        level: "Intermediate",
+        group: "Pre-Engineering",
+        status: "Active"
+    },
 
     {
-        id: "QIAC-FSC-CHEM",
-
-        program: "F.Sc",
-
-        programCode: "FSC",
-
-        subject: "Chemistry",
-
-        shortName: "Chemistry",
-
-        category: "Intermediate",
-
-        description:
-            "Comprehensive F.Sc Chemistry preparation combining conceptual understanding with structured examination practice.",
-
-        teacher: "Faculty Member",
-
+        id: "QIAC-FSC-PE-ENG",
+        className: "F.Sc",
+        subject: "English",
+        teacherId: "T-E",
+        teacherName: "Teacher E",
         level: "Intermediate",
+        group: "Pre-Engineering",
+        status: "Active"
+    },
 
-        duration: "Academic Year",
+    {
+        id: "QIAC-FSC-PE-URDU",
+        className: "F.Sc",
+        subject: "Urdu",
+        teacherId: "T-F",
+        teacherName: "Teacher F",
+        level: "Intermediate",
+        group: "Pre-Engineering",
+        status: "Active"
+    },
 
-        status: "Active",
+    {
+        id: "QIAC-FSC-PE-ISL",
+        className: "F.Sc",
+        subject: "Islamiat",
+        teacherId: "T-H",
+        teacherName: "Teacher H",
+        level: "Intermediate",
+        group: "Pre-Engineering",
+        status: "Active"
+    },
 
-        icon: "Ω",
-
-        features: [
-            "Conceptual learning",
-            "Reaction mechanisms",
-            "MCQs",
-            "Board preparation"
-        ]
-
+    {
+        id: "QIAC-FSC-PE-PAK",
+        className: "F.Sc",
+        subject: "Pakistan Studies",
+        teacherId: "T-I",
+        teacherName: "Teacher I",
+        level: "Intermediate",
+        group: "Pre-Engineering",
+        status: "Active"
     },
 
 
     /* =====================================================
-       ENTRY TEST
-    ===================================================== */
+       F.SC — PRE-MEDICAL
+       ===================================================== */
 
     {
-        id: "QIAC-ET-MATH",
-
-        program: "Entry Test",
-
-        programCode: "ENTRY-TEST",
-
-        subject: "Mathematics",
-
-        shortName: "Mathematics",
-
-        category: "Entry Test",
-
-        description:
-            "Intensive Mathematics preparation for university admission and competitive entry tests.",
-
-        teacher: "Faculty Member",
-
-        level: "Entry Test",
-
-        duration: "Intensive Program",
-
-        status: "Active",
-
-        icon: "Σ",
-
-        features: [
-            "MCQ strategies",
-            "Timed practice",
-            "Past entry tests",
-            "Mock examinations"
-        ]
-
+        id: "QIAC-FSC-PM-BIO",
+        className: "F.Sc",
+        subject: "Biology",
+        teacherId: "T-D",
+        teacherName: "Teacher D",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
     },
 
-
     {
-        id: "QIAC-ET-PHY",
-
-        program: "Entry Test",
-
-        programCode: "ENTRY-TEST",
-
+        id: "QIAC-FSC-PM-PHY",
+        className: "F.Sc",
         subject: "Physics",
-
-        shortName: "Physics",
-
-        category: "Entry Test",
-
-        description:
-            "Entry Test Physics preparation with intensive MCQ practice, conceptual revision and timed assessments.",
-
-        teacher: "Faculty Member",
-
-        level: "Entry Test",
-
-        duration: "Intensive Program",
-
-        status: "Active",
-
-        icon: "Δ",
-
-        features: [
-            "Concept revision",
-            "MCQ practice",
-            "Timed tests",
-            "Mock exams"
-        ]
-
+        teacherId: "T-B",
+        teacherName: "Teacher B",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
     },
 
+    {
+        id: "QIAC-FSC-PM-CHEM",
+        className: "F.Sc",
+        subject: "Chemistry",
+        teacherId: "T-C",
+        teacherName: "Teacher C",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
+    },
 
     {
-        id: "QIAC-ET-CHEM",
+        id: "QIAC-FSC-PM-ENG",
+        className: "F.Sc",
+        subject: "English",
+        teacherId: "T-E",
+        teacherName: "Teacher E",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
+    },
 
-        program: "Entry Test",
+    {
+        id: "QIAC-FSC-PM-URDU",
+        className: "F.Sc",
+        subject: "Urdu",
+        teacherId: "T-F",
+        teacherName: "Teacher F",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
+    },
 
-        programCode: "ENTRY-TEST",
+    {
+        id: "QIAC-FSC-PM-ISL",
+        className: "F.Sc",
+        subject: "Islamiat",
+        teacherId: "T-H",
+        teacherName: "Teacher H",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
+    },
 
-        subject: "Chemistry",
-
-        shortName: "Chemistry",
-
-        category: "Entry Test",
-
-        description:
-            "Focused Chemistry preparation for competitive entry tests through concept revision and intensive MCQ practice.",
-
-        teacher: "Faculty Member",
-
-        level: "Entry Test",
-
-        duration: "Intensive Program",
-
-        status: "Active",
-
-        icon: "λ",
-
-        features: [
-            "Rapid revision",
-            "MCQ practice",
-            "Timed assessments",
-            "Mock tests"
-        ]
-
+    {
+        id: "QIAC-FSC-PM-PAK",
+        className: "F.Sc",
+        subject: "Pakistan Studies",
+        teacherId: "T-I",
+        teacherName: "Teacher I",
+        level: "Intermediate",
+        group: "Pre-Medical",
+        status: "Active"
     }
 
 ];
