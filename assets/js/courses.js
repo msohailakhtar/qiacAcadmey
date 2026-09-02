@@ -1,286 +1,487 @@
 /* =========================================================
    QIAC ACADEMY
-   COURSES PAGE
-========================================================= */
+   COURSES PAGE JAVASCRIPT
+   File: assets/js/courses.js
+   ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        initializeCoursePage();
+    const coursesGrid =
+        document.getElementById("coursesGrid");
 
-    }
-);
+    const coursesEmpty =
+        document.getElementById("coursesEmpty");
 
+    const courseCount =
+        document.getElementById("courseCount");
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+    const subjectFilters =
+        document.getElementById("subjectFilters");
 
-function initializeCoursePage() {
-
-    const grid =
-        document.getElementById(
-            "courseGrid"
-        );
-
-    const empty =
-        document.getElementById(
-            "courseEmpty"
-        );
+    const fscGroupWrapper =
+        document.getElementById("fscGroupWrapper");
 
 
-    if (!grid) {
-        return;
-    }
+    let selectedClass = "all";
+    let selectedGroup = "all";
+    let selectedSubject = "all";
 
 
-    renderCourses(
-        "all",
-        grid,
-        empty
-    );
+    /* =====================================================
+       GET SUBJECTS
+       ===================================================== */
+
+    function getSubjects() {
+
+        let filteredCourses =
+            QIAC_COURSES.filter(course => {
+
+                if (
+                    selectedClass !== "all" &&
+                    course.className !== selectedClass
+                ) {
+                    return false;
+                }
+
+                if (
+                    selectedGroup !== "all" &&
+                    course.group !== selectedGroup
+                ) {
+                    return false;
+                }
+
+                return true;
+
+            });
 
 
-    initializeFilters(
-        grid,
-        empty
-    );
+        const subjects = [
+            ...new Set(
+                filteredCourses.map(course => course.subject)
+            )
+        ];
 
-}
-
-
-/* =========================================================
-   RENDER COURSES
-========================================================= */
-
-function renderCourses(
-    filter,
-    grid,
-    empty
-) {
-
-    let courses =
-        QIAC_COURSES;
-
-
-    if (filter !== "all") {
-
-        courses =
-            QIAC_COURSES.filter(
-                course =>
-                    course.program === filter
-            );
+        return subjects.sort();
 
     }
 
 
-    grid.innerHTML = "";
+    /* =====================================================
+       RENDER SUBJECT FILTERS
+       ===================================================== */
+
+    function renderSubjectFilters() {
+
+        const subjects = getSubjects();
+
+        subjectFilters.innerHTML = "";
 
 
-    if (!courses.length) {
+        const allButton =
+            document.createElement("button");
 
-        empty.classList.add(
-            "show"
-        );
+        allButton.className =
+            `subject-filter ${
+                selectedSubject === "all"
+                    ? "active"
+                    : ""
+            }`;
 
-        return;
+        allButton.dataset.subject = "all";
 
-    }
+        allButton.textContent =
+            "All Subjects";
 
-
-    empty.classList.remove(
-        "show"
-    );
+        subjectFilters.appendChild(allButton);
 
 
-    courses.forEach(
-        (course, index) => {
+        subjects.forEach(subject => {
 
-            const card =
-                createCourseCard(
-                    course
+            const button =
+                document.createElement("button");
+
+            button.className =
+                `subject-filter ${
+                    selectedSubject === subject
+                        ? "active"
+                        : ""
+                }`;
+
+            button.dataset.subject =
+                subject;
+
+            button.textContent =
+                subject;
+
+            subjectFilters.appendChild(button);
+
+        });
+
+
+        subjectFilters
+            .querySelectorAll(".subject-filter")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        selectedSubject =
+                            button.dataset.subject;
+
+                        renderSubjectFilters();
+
+                        renderCourses();
+
+                    }
                 );
 
+            });
 
-            card.style.animationDelay =
-                `${index * 70}ms`;
-
-
-            grid.appendChild(card);
-
-        }
-    );
-
-}
+    }
 
 
-/* =========================================================
-   COURSE CARD
-========================================================= */
+    /* =====================================================
+       FILTER COURSES
+       ===================================================== */
 
-function createCourseCard(course) {
+    function getFilteredCourses() {
 
-    const article =
-        document.createElement(
-            "article"
-        );
+        return QIAC_COURSES.filter(course => {
 
-
-    article.className =
-        "course-card";
+            const classMatch =
+                selectedClass === "all" ||
+                course.className === selectedClass;
 
 
-    article.dataset.courseId =
-        course.id;
+            const groupMatch =
+                selectedGroup === "all" ||
+                course.group === selectedGroup;
 
 
-    article.innerHTML = `
-
-        <div class="course-card-top">
-
-            <span class="course-program">
-                ${course.program}
-            </span>
-
-            <span class="course-icon">
-                ${course.icon}
-            </span>
-
-        </div>
+            const subjectMatch =
+                selectedSubject === "all" ||
+                course.subject === selectedSubject;
 
 
-        <div class="course-card-body">
+            return (
+                classMatch &&
+                groupMatch &&
+                subjectMatch
+            );
 
-            <span class="course-category">
-                ${course.category}
-            </span>
+        });
+
+    }
+
+
+    /* =====================================================
+       COURSE CARD
+       ===================================================== */
+
+    function createCourseCard(course) {
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "course-card";
+
+
+        card.innerHTML = `
+
+            <div class="course-card-top">
+
+                <span class="course-level">
+                    ${course.level}
+                </span>
+
+                <span class="course-status">
+                    ${course.status}
+                </span>
+
+            </div>
+
+
+            <div class="course-icon">
+                ${getSubjectIcon(course.subject)}
+            </div>
+
+
+            <div class="course-class">
+                ${course.className}
+                ${course.className === "F.Sc"
+                    ? ` • ${course.group}`
+                    : ""}
+            </div>
+
 
             <h3>
                 ${course.subject}
             </h3>
 
-            <p>
-                ${course.description}
-            </p>
+
+            <div class="course-teacher">
+
+                <span class="teacher-icon">
+                    ◉
+                </span>
+
+                <span>
+                    ${course.teacherName}
+                </span>
+
+            </div>
 
 
-            <div class="course-meta">
-
-                <div>
-
-                    <span>
-                        LEVEL
-                    </span>
-
-                    <strong>
-                        ${course.level}
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        DURATION
-                    </span>
-
-                    <strong>
-                        ${course.duration}
-                    </strong>
-
-                </div>
-
+            <div class="course-id">
+                COURSE ID:
+                <strong>
+                    ${course.id}
+                </strong>
             </div>
 
 
             <div class="course-features">
 
-                ${course.features
-                    .map(
-                        feature =>
-                            `<span>✓ ${feature}</span>`
-                    )
-                    .join("")
-                }
+                <span>Lectures</span>
+
+                <span>Notes</span>
+
+                <span>Assignments</span>
+
+                <span>Tests</span>
 
             </div>
 
-        </div>
-
-
-        <div class="course-card-footer">
-
-            <span>
-                ${course.id}
-            </span>
 
             <a
-                href="contact.html"
+                href="lectures.html?course=${encodeURIComponent(course.id)}"
                 class="course-link">
 
-                Enquire →
+                View Course
+
+                <span>→</span>
 
             </a>
 
-        </div>
-
-    `;
+        `;
 
 
-    return article;
+        return card;
 
-}
-
-
-/* =========================================================
-   FILTERS
-========================================================= */
-
-function initializeFilters(
-    grid,
-    empty
-) {
-
-    const buttons =
-        document.querySelectorAll(
-            ".program-filter-btn"
-        );
+    }
 
 
-    buttons.forEach(button => {
+    /* =====================================================
+       SUBJECT ICONS
+       ===================================================== */
 
-        button.addEventListener(
-            "click",
-            () => {
+    function getSubjectIcon(subject) {
 
-                buttons.forEach(
-                    item =>
-                        item.classList.remove(
-                            "active"
+        const icons = {
+
+            "Mathematics": "∑",
+
+            "Physics": "Φ",
+
+            "Chemistry": "⚗",
+
+            "Biology": "⌬",
+
+            "English": "A",
+
+            "Urdu": "ا",
+
+            "Computer Science": "</>",
+
+            "Islamiat": "☪",
+
+            "Pakistan Studies": "★",
+
+            "General / Additional Subject": "◆"
+
+        };
+
+
+        return icons[subject] || "◆";
+
+    }
+
+
+    /* =====================================================
+       RENDER COURSES
+       ===================================================== */
+
+    function renderCourses() {
+
+        const courses =
+            getFilteredCourses();
+
+
+        coursesGrid.innerHTML = "";
+
+
+        if (courses.length === 0) {
+
+            coursesEmpty.classList.add("show");
+
+            courseCount.textContent =
+                "No programs found";
+
+            return;
+
+        }
+
+
+        coursesEmpty.classList.remove("show");
+
+
+        courses.forEach(course => {
+
+            coursesGrid.appendChild(
+                createCourseCard(course)
+            );
+
+        });
+
+
+        courseCount.textContent =
+            `Showing ${courses.length} ${
+                courses.length === 1
+                    ? "program"
+                    : "programs"
+            }`;
+
+    }
+
+
+    /* =====================================================
+       CLASS FILTER
+       ===================================================== */
+
+    document
+        .querySelectorAll(".class-filter")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(
+                            ".class-filter"
                         )
-                );
+                        .forEach(btn =>
+                            btn.classList.remove(
+                                "active"
+                            )
+                        );
 
 
-                button.classList.add(
-                    "active"
-                );
+                    button.classList.add(
+                        "active"
+                    );
 
 
-                const filter =
-                    button.dataset.filter;
+                    selectedClass =
+                        button.dataset.class;
 
 
-                renderCourses(
-                    filter,
-                    grid,
-                    empty
-                );
+                    selectedGroup = "all";
 
-            }
-        );
+                    selectedSubject = "all";
 
-    });
 
-}
+                    updateFscGroupVisibility();
+
+                    renderSubjectFilters();
+
+                    renderCourses();
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       F.SC GROUP FILTER
+       ===================================================== */
+
+    document
+        .querySelectorAll(".group-filter")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(
+                            ".group-filter"
+                        )
+                        .forEach(btn =>
+                            btn.classList.remove(
+                                "active"
+                            )
+                        );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    selectedGroup =
+                        button.dataset.group;
+
+
+                    selectedSubject =
+                        "all";
+
+
+                    renderSubjectFilters();
+
+                    renderCourses();
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       F.SC GROUP VISIBILITY
+       ===================================================== */
+
+    function updateFscGroupVisibility() {
+
+        if (selectedClass === "F.Sc") {
+
+            fscGroupWrapper.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            fscGroupWrapper.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       INITIALIZE
+       ===================================================== */
+
+    updateFscGroupVisibility();
+
+    renderSubjectFilters();
+
+    renderCourses();
+
+});
