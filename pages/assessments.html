@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Assessment | QIAC Academy</title>
+
+    <meta name="description"
+          content="Student assessment and academic progress portal of QIAC Academy.">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="../assets/css/navbar.css">
+
+    <link rel="stylesheet"
+          href="../assets/css/footer.css">
+
+
+    <!-- Assessment CSS -->
+
+    <link rel="stylesheet"
+          href="../assets/css/assessments.css">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<div id="navbar-container"></div>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="assessment-hero">
+
+    <div class="assessment-hero-glow"></div>
+
+    <div class="container">
+
+        <div class="assessment-hero-content">
+
+            <div class="hero-label">
+                QIAC ACADEMY • STUDENT PERFORMANCE
+            </div>
+
+            <h1>
+                Track Progress.
+                <span>Improve Performance.</span>
+            </h1>
+
+            <p>
+                Monitor assessments, marks, attendance,
+                feedback, and academic progress through one
+                integrated student dashboard.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STUDENT SELECTION
+     ===================================================== -->
+
+<section class="section assessment-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                STUDENT PORTAL
+            </div>
+
+            <h2>
+                Student <span>Dashboard</span>
+            </h2>
+
+            <p>
+                Select a student to view their academic
+                performance and assessment record.
+            </p>
+
+        </div>
+
+
+        <!-- STUDENT SELECTOR -->
+
+        <div class="student-selector">
+
+            <label for="studentSelect">
+                Select Student
+            </label>
+
+            <select id="studentSelect">
+
+                <option value="">
+                    Select Student
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =================================================
+             DASHBOARD
+             ================================================= -->
+
+        <div id="dashboard"
+             class="student-dashboard">
+
+
+            <!-- STUDENT HEADER -->
+
+            <div class="student-header">
+
+                <div>
+
+                    <div class="student-label">
+                        STUDENT PROFILE
+                    </div>
+
+                    <h2 id="studentName">
+                        Student
+                    </h2>
+
+                    <p id="studentInfo">
+                        Class information
+                    </p>
+
+                </div>
+
+
+                <div class="student-status">
+                    ACTIVE
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATISTICS
+                 ================================================= -->
+
+            <div class="performance-stats">
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Overall Percentage
+                    </span>
+
+                    <strong id="overallPercentage">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Assessments
+                    </span>
+
+                    <strong id="assessmentTotal">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Tests
+                    </span>
+
+                    <strong id="testTotal">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>
+                        Best Score
+                    </span>
+
+                    <strong id="bestScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 COURSE PERFORMANCE
+                 ================================================= -->
+
+            <div class="dashboard-section">
+
+                <div class="dashboard-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            COURSE PERFORMANCE
+                        </div>
+
+                        <h3>
+                            Academic Performance
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div id="coursePerformance"
+                     class="course-performance-grid">
+
+                    <!-- JavaScript -->
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ASSESSMENT HISTORY
+                 ================================================= -->
+
+            <div class="dashboard-section">
+
+                <div class="dashboard-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            ASSESSMENT HISTORY
+                        </div>
+
+                        <h3>
+                            Recent Assessments
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="assessment-table-wrapper">
+
+                    <table class="assessment-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Assessment
+                                </th>
+
+                                <th>
+                                    Course
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Marks
+                                </th>
+
+                                <th>
+                                    %
+                                </th>
+
+                                <th>
+                                    Grade
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="assessmentTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEACHER FEEDBACK
+                 ================================================= -->
+
+            <div class="dashboard-section">
+
+                <div class="dashboard-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            TEACHER FEEDBACK
+                        </div>
+
+                        <h3>
+                            Academic Remarks
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div id="feedbackList"
+                     class="feedback-list">
+
+                    <!-- JavaScript -->
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- EMPTY -->
+
+        <div id="dashboardEmpty"
+             class="dashboard-empty">
+
+            <div>
+                ◈
+            </div>
+
+            <h3>
+                Select a Student
+            </h3>
+
+            <p>
+                Choose a student above to view academic
+                performance.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<div id="footer-container"></div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="../assets/js/components.js"></script>
+
+<script src="../data/teachers.js"></script>
+
+<script src="../data/courses.js"></script>
+
+<script src="../data/students.js"></script>
+
+<script src="../data/assessments.js"></script>
+
+<script src="../assets/js/assessments.js"></script>
+
+
+</body>
+
+</html>
