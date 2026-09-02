@@ -1,0 +1,843 @@
+/* =========================================================
+   QIAC ACADEMY
+   STUDENT ASSESSMENT & PROGRESS
+   File: assets/css/assessments.css
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.assessment-hero {
+
+    position: relative;
+
+    min-height: 500px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071a33,
+            #0d294d
+        );
+
+}
+
+
+.assessment-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -230px;
+
+    top: -250px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(201,162,39,.16);
+
+}
+
+
+.assessment-hero-glow {
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    right: 20%;
+
+    top: 10%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(201,162,39,.07);
+
+    filter:
+        blur(80px);
+
+}
+
+
+.assessment-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 760px;
+
+    padding: 90px 0;
+
+}
+
+
+.assessment-hero .hero-label {
+
+    color: #e4c766;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.assessment-hero h1 {
+
+    margin: 18px 0;
+
+    color: white;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 6vw, 68px);
+
+    line-height: 1.1;
+
+}
+
+
+.assessment-hero h1 span {
+
+    color: #e4c766;
+
+}
+
+
+.assessment-hero p {
+
+    max-width: 650px;
+
+    color:
+        rgba(255,255,255,.67);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.assessment-section {
+
+    background: #f7f9fc;
+
+}
+
+
+/* =========================================================
+   STUDENT SELECTOR
+   ========================================================= */
+
+.student-selector {
+
+    max-width: 550px;
+
+    margin:
+        0 auto 40px;
+
+    padding: 20px;
+
+    border:
+        1px solid #e1e6ed;
+
+    border-radius: 10px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 30px
+        rgba(7,26,51,.05);
+
+}
+
+
+.student-selector label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #071a33;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.student-selector select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border:
+        1px solid #dce2ea;
+
+    border-radius: 6px;
+
+    background: white;
+
+    color: #344054;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+
+}
+
+
+.student-selector select:focus {
+
+    border-color:
+        #c9a227;
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.student-dashboard {
+
+    display: none;
+
+}
+
+
+.student-dashboard.show {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   STUDENT HEADER
+   ========================================================= */
+
+.student-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    background: #071a33;
+
+    box-shadow:
+        0 15px 40px
+        rgba(7,26,51,.12);
+
+}
+
+
+.student-label {
+
+    margin-bottom: 8px;
+
+    color: #e4c766;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.student-header h2 {
+
+    margin: 0 0 5px;
+
+    color: white;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+}
+
+
+.student-header p {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 11px;
+
+}
+
+
+.student-status {
+
+    padding: 7px 10px;
+
+    border-radius: 4px;
+
+    background: #edf8f0;
+
+    color: #287a43;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.performance-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin:
+        15px 0 40px;
+
+}
+
+
+.stat-card {
+
+    padding: 23px;
+
+    border:
+        1px solid #e2e7ed;
+
+    border-radius: 8px;
+
+    background: white;
+
+}
+
+
+.stat-card span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #9aa5b1;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+}
+
+
+.stat-card strong {
+
+    color: #071a33;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 28px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION
+   ========================================================= */
+
+.dashboard-section {
+
+    margin-bottom: 40px;
+
+}
+
+
+.dashboard-heading {
+
+    margin-bottom: 18px;
+
+}
+
+
+.dashboard-heading h3 {
+
+    margin: 6px 0 0;
+
+    color: #071a33;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 27px;
+
+}
+
+
+/* =========================================================
+   COURSE PERFORMANCE
+   ========================================================= */
+
+.course-performance-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.course-performance-card {
+
+    padding: 22px;
+
+    border:
+        1px solid #e2e7ed;
+
+    border-radius: 8px;
+
+    background: white;
+
+}
+
+
+.course-performance-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.course-performance-top span {
+
+    color: #9aa5b1;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.course-performance-top h4 {
+
+    margin: 6px 0 15px;
+
+    color: #071a33;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 20px;
+
+}
+
+
+.course-performance-top strong {
+
+    color: #c9a227;
+
+    font-size: 22px;
+
+}
+
+
+.progress-track {
+
+    height: 6px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #edf0f4;
+
+}
+
+
+.progress-fill {
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #c9a227;
+
+}
+
+
+.course-performance-meta {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 12px;
+
+    color: #667085;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.assessment-table-wrapper {
+
+    overflow-x: auto;
+
+    border:
+        1px solid #e2e7ed;
+
+    border-radius: 8px;
+
+    background: white;
+
+}
+
+
+.assessment-table {
+
+    width: 100%;
+
+    min-width: 800px;
+
+    border-collapse: collapse;
+
+}
+
+
+.assessment-table th {
+
+    padding: 14px;
+
+    background: #071a33;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+}
+
+
+.assessment-table td {
+
+    padding: 15px 14px;
+
+    border-bottom:
+        1px solid #edf0f4;
+
+    color: #667085;
+
+    font-size: 10px;
+
+}
+
+
+.assessment-table td strong {
+
+    display: block;
+
+    color: #344054;
+
+}
+
+
+.assessment-table td small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #9aa5b1;
+
+}
+
+
+.grade-badge {
+
+    padding: 5px 8px;
+
+    border-radius: 4px;
+
+    background: #f5f0dd;
+
+    color: #9a7710;
+
+    font-weight: 800;
+
+}
+
+
+.checked-badge {
+
+    padding: 5px 8px;
+
+    border-radius: 4px;
+
+    background: #edf8f0;
+
+    color: #287a43;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.feedback-list {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.feedback-item {
+
+    display: flex;
+
+    gap: 18px;
+
+    padding: 23px;
+
+    border:
+        1px solid #e2e7ed;
+
+    border-radius: 8px;
+
+    background: white;
+
+}
+
+
+.feedback-mark {
+
+    color: #c9a227;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 40px;
+
+    line-height: 1;
+
+}
+
+
+.feedback-item p {
+
+    margin: 0 0 12px;
+
+    color: #344054;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.feedback-meta {
+
+    display: flex;
+
+    gap: 10px;
+
+    color: #9aa5b1;
+
+    font-size: 9px;
+
+}
+
+
+.feedback-meta strong {
+
+    color: #071a33;
+
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.dashboard-empty {
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+}
+
+
+.dashboard-empty > div {
+
+    color: #c9a227;
+
+    font-size: 35px;
+
+}
+
+
+.dashboard-empty h3 {
+
+    margin: 12px 0 7px;
+
+    color: #071a33;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+}
+
+
+.dashboard-empty p {
+
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .performance-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .course-performance-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .student-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+    }
+
+
+    .performance-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .student-header h2 {
+
+        font-size: 26px;
+
+    }
+
+}
