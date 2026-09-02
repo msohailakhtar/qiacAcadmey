@@ -1,0 +1,307 @@
+/* =========================================================
+   QIAC ACADEMY
+   PREMIUM FOOTER
+========================================================= */
+
+.footer {
+
+    background: var(--navy-900);
+
+    color: white;
+
+    padding:
+        75px 0 25px;
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER GRID
+--------------------------------------------------------- */
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.2fr;
+
+    gap: 50px;
+
+    padding-bottom: 55px;
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER BRAND
+--------------------------------------------------------- */
+
+.footer-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.footer-logo {
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    background: var(--gold);
+
+    color: var(--navy-900);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+.footer-brand strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.footer-brand span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT
+--------------------------------------------------------- */
+
+.footer-about > p {
+
+    max-width: 350px;
+
+    margin-bottom: 20px;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ---------------------------------------------------------
+   LOCATION
+--------------------------------------------------------- */
+
+.footer-location {
+
+    display: flex;
+
+    gap: 9px;
+
+    align-items: flex-start;
+
+    color:
+        rgba(255,255,255,0.7);
+
+    font-size: 13px;
+
+}
+
+
+/* ---------------------------------------------------------
+   COLUMNS
+--------------------------------------------------------- */
+
+.footer-column h4 {
+
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.footer-column > a {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(255,255,255,0.58);
+
+    font-size: 13px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.footer-column > a:hover {
+
+    color: var(--gold-light);
+
+    transform: translateX(3px);
+
+}
+
+
+.footer-address {
+
+    max-width: 180px;
+
+    color:
+        rgba(255,255,255,0.58);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER BOTTOM
+--------------------------------------------------------- */
+
+.footer-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.10);
+
+}
+
+
+.footer-bottom p {
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 12px;
+
+}
+
+
+.footer-bottom-links {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.footer-bottom-links a {
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 12px;
+
+}
+
+
+.footer-bottom-links a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 950px) {
+
+    .footer-grid {
+
+        grid-template-columns:
+            2fr 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .footer {
+
+        padding-top: 60px;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
