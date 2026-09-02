@@ -1,16 +1,15 @@
-```javascript
 /* =========================================================
    QIAC ACADEMY
    REUSABLE COMPONENT SYSTEM
    Version: 2.1
-
+   ---------------------------------------------------------
    Handles:
-   - Navbar
-   - Footer
-   - Mobile navigation
-   - Scroll effect
-   - Active page
-   - Root/pages navigation paths
+   • Dynamic Navbar
+   • Dynamic Footer
+   • Mobile Navigation
+   • Navigation Path Normalization
+   • Active Page Highlighting
+   • Current Year
 ========================================================= */
 
 
@@ -30,6 +29,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     /*
      * Component directory
+     *
+     * Root:
+     * components/navbar.html
+     *
+     * Pages:
+     * ../components/navbar.html
      */
 
     const componentPath =
@@ -58,33 +63,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
 
 
-    /* -----------------------------------------------------
-       NORMALIZE NAVIGATION PATHS
-       
-       IMPORTANT:
-       This MUST happen after navbar.html is loaded.
-    ----------------------------------------------------- */
+    /*
+     * IMPORTANT
+     *
+     * Navbar must be loaded before:
+     *
+     * normalizeNavigationPaths()
+     * initializeNavbar()
+     * setActivePage()
+     */
 
     normalizeNavigationPaths();
 
-
-    /* -----------------------------------------------------
-       INITIALIZE NAVBAR
-    ----------------------------------------------------- */
-
     initializeNavbar();
 
-
-    /* -----------------------------------------------------
-       CURRENT YEAR
-    ----------------------------------------------------- */
-
     setCurrentYear();
-
-
-    /* -----------------------------------------------------
-       ACTIVE PAGE
-    ----------------------------------------------------- */
 
     setActivePage();
 
@@ -101,8 +94,19 @@ async function loadComponent(elementId, filePath) {
         document.getElementById(elementId);
 
 
+    /*
+     * If the container does not exist,
+     * simply stop without breaking the page.
+     */
+
     if (!container) {
+
+        console.warn(
+            `QIAC: Container "${elementId}" not found.`
+        );
+
         return;
+
     }
 
 
@@ -115,7 +119,7 @@ async function loadComponent(elementId, filePath) {
         if (!response.ok) {
 
             throw new Error(
-                `Unable to load component: ${filePath}`
+                `HTTP ${response.status} - ${response.statusText}`
             );
 
         }
@@ -132,7 +136,7 @@ async function loadComponent(elementId, filePath) {
     } catch (error) {
 
         console.error(
-            "QIAC Component Error:",
+            `QIAC Component Error: Unable to load "${filePath}"`,
             error
         );
 
@@ -148,26 +152,62 @@ async function loadComponent(elementId, filePath) {
 function initializeNavbar() {
 
     const menuButton =
-        document.getElementById("mobileMenuBtn");
+        document.getElementById(
+            "mobileMenuBtn"
+        );
 
 
     const navLinks =
-        document.getElementById("navLinks");
+        document.getElementById(
+            "navLinks"
+        );
 
 
     const header =
-        document.querySelector(".site-header");
+        document.querySelector(
+            ".site-header"
+        );
 
 
     /* -----------------------------------------------------
-       MOBILE MENU
+       SAFETY CHECK
     ----------------------------------------------------- */
+
+    if (!menuButton || !navLinks) {
+
+        console.warn(
+            "QIAC: Mobile navigation elements not found."
+        );
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
     if (menuButton && navLinks) {
 
+        /*
+         * Mobile menu button
+         */
+
         menuButton.addEventListener(
             "click",
-            () => {
+            function (event) {
+
+                /*
+                 * Prevent unwanted button behaviour
+                 */
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                /*
+                 * Toggle menu
+                 */
 
                 const isOpen =
                     navLinks.classList.toggle(
@@ -175,15 +215,31 @@ function initializeNavbar() {
                     );
 
 
+                /*
+                 * Animate hamburger button
+                 */
+
                 menuButton.classList.toggle(
                     "open",
                     isOpen
                 );
 
 
+                /*
+                 * Accessibility
+                 */
+
                 menuButton.setAttribute(
                     "aria-expanded",
                     String(isOpen)
+                );
+
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
                 );
 
             }
@@ -191,7 +247,7 @@ function initializeNavbar() {
 
 
         /* -------------------------------------------------
-           CLOSE MOBILE MENU AFTER NAVIGATION
+           CLOSE MENU AFTER CLICKING A LINK
         ------------------------------------------------- */
 
         navLinks
@@ -217,23 +273,110 @@ function initializeNavbar() {
                             "false"
                         );
 
+
+                        menuButton.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
+
                     }
                 );
 
             });
 
+
+        /* -------------------------------------------------
+           CLOSE MENU WHEN CLICKING OUTSIDE
+        ------------------------------------------------- */
+
+        document.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    !navLinks.contains(event.target) &&
+                    !menuButton.contains(event.target)
+                ) {
+
+                    navLinks.classList.remove(
+                        "show"
+                    );
+
+
+                    menuButton.classList.remove(
+                        "open"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* -------------------------------------------------
+           CLOSE MENU WITH ESCAPE KEY
+        ------------------------------------------------- */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    navLinks.classList.remove(
+                        "show"
+                    );
+
+
+                    menuButton.classList.remove(
+                        "open"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                }
+
+            }
+        );
+
     }
 
 
-    /* -----------------------------------------------------
-       SCROLL EFFECT
-    ----------------------------------------------------- */
+    /* =====================================================
+       HEADER SCROLL EFFECT
+    ===================================================== */
 
     if (header) {
 
         const handleScroll = () => {
 
-            if (window.scrollY > 20) {
+            if (
+                window.scrollY > 20
+            ) {
 
                 header.classList.add(
                     "scrolled"
@@ -251,19 +394,20 @@ function initializeNavbar() {
 
 
         /*
-         * Run once immediately
+         * Run once on page load
          */
 
         handleScroll();
 
 
         /*
-         * Then monitor scrolling
+         * Run while scrolling
          */
 
         window.addEventListener(
             "scroll",
-            handleScroll
+            handleScroll,
+            { passive: true }
         );
 
     }
@@ -290,17 +434,21 @@ function setActivePage() {
     links.forEach(link => {
 
         const href =
-            link.getAttribute("href");
+            link.getAttribute(
+                "href"
+            );
 
 
         if (!href) {
+
             return;
+
         }
 
 
         /*
-         * Convert the link into an absolute URL
-         * so comparison works from both root and /pages/
+         * Convert relative URL into
+         * an absolute pathname.
          */
 
         const linkPath =
@@ -311,8 +459,7 @@ function setActivePage() {
 
 
         /*
-         * Remove active class first
-         * in case this function is called again.
+         * Remove previous active state
          */
 
         link.classList.remove(
@@ -321,7 +468,7 @@ function setActivePage() {
 
 
         /*
-         * Exact page match
+         * Normal page matching
          */
 
         if (
@@ -332,23 +479,32 @@ function setActivePage() {
                 "active"
             );
 
+            return;
+
         }
 
 
         /*
-         * Root index handling
+         * Handle root index.html
          */
 
-        else if (
-            (
-                currentPath === "/" ||
-                currentPath.endsWith("/")
-            )
-            &&
-            (
-                linkPath === "/index.html" ||
-                linkPath === "/"
-            )
+        const isCurrentHome =
+            currentPath === "/" ||
+            currentPath.endsWith(
+                "/index.html"
+            );
+
+
+        const isHomeLink =
+            linkPath === "/" ||
+            linkPath.endsWith(
+                "/index.html"
+            );
+
+
+        if (
+            isCurrentHome &&
+            isHomeLink
         ) {
 
             link.classList.add(
@@ -374,12 +530,15 @@ function setCurrentYear() {
         );
 
 
-    if (yearElement) {
+    if (!yearElement) {
 
-        yearElement.textContent =
-            new Date().getFullYear();
+        return;
 
     }
+
+
+    yearElement.textContent =
+        new Date().getFullYear();
 
 }
 
@@ -388,21 +547,30 @@ function setCurrentYear() {
    NORMALIZE NAVIGATION PATHS
 ========================================================= */
 
-function normalizeNavigationPaths() {
+/*
+ * The same navbar.html is used on:
+ *
+ * index.html
+ *
+ * pages/about.html
+ * pages/courses.html
+ * pages/lectures.html
+ * pages/assessments.html
+ * pages/attendance.html
+ * pages/contact.html
+ *
+ *
+ * Therefore navigation paths need to be
+ * adjusted depending on the current directory.
+ */
 
-    /*
-     * Check whether current page is inside /pages/
-     */
+function normalizeNavigationPaths() {
 
     const isInsidePages =
         window.location.pathname.includes(
             "/pages/"
         );
 
-
-    /*
-     * Get all navbar links
-     */
 
     const links =
         document.querySelectorAll(
@@ -413,22 +581,23 @@ function normalizeNavigationPaths() {
     links.forEach(link => {
 
         const href =
-            link.getAttribute("href");
+            link.getAttribute(
+                "href"
+            );
 
 
         if (!href) {
+
             return;
+
         }
 
 
-        /*
-         * -------------------------------------------------
-         * PAGE INSIDE /pages/
-         * -------------------------------------------------
-         */
+        /* =================================================
+           CURRENT PAGE IS INSIDE /pages/
+        ================================================= */
 
         if (isInsidePages) {
-
 
             /*
              * Home
@@ -451,11 +620,15 @@ function normalizeNavigationPaths() {
 
 
             /*
-             * Other pages
+             * Root-to-pages links
              *
              * pages/about.html
              * ↓
-             * ../about.html
+             * about.html
+             *
+             * pages/courses.html
+             * ↓
+             * courses.html
              */
 
             else if (
@@ -475,7 +648,84 @@ function normalizeNavigationPaths() {
 
         }
 
+
+        /* =================================================
+           CURRENT PAGE IS ROOT
+        ================================================= */
+
+        else {
+
+            /*
+             * Root pages already correctly use:
+             *
+             * pages/about.html
+             * pages/courses.html
+             * etc.
+             *
+             * Therefore no changes are required.
+             */
+
+        }
+
     });
 
 }
-```
+
+
+/* =========================================================
+   MOBILE MENU HELPER
+========================================================= */
+
+/*
+ * Can be used by other scripts if required.
+ */
+
+function closeMobileMenu() {
+
+    const menuButton =
+        document.getElementById(
+            "mobileMenuBtn"
+        );
+
+
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
+
+
+    if (navLinks) {
+
+        navLinks.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    if (menuButton) {
+
+        menuButton.classList.remove(
+            "open"
+        );
+
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   QIAC COMPONENT SYSTEM END
+========================================================= */
