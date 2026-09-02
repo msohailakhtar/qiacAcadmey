@@ -1,0 +1,1272 @@
+/* =========================================================
+   QIAC ACADEMY
+   COURSES PAGE
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.courses-hero {
+
+    position: relative;
+
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            115deg,
+            var(--navy-900),
+            var(--navy-800)
+        );
+
+    color: white;
+
+}
+
+
+.courses-hero-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .04;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+}
+
+
+.courses-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -280px;
+
+    top: -260px;
+
+    border:
+        1px solid
+        rgba(201,162,39,.25);
+
+    border-radius: 50%;
+
+}
+
+
+.courses-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    padding: 100px 0;
+
+}
+
+
+.courses-hero .section-label {
+
+    color: var(--gold-light);
+
+}
+
+
+.courses-hero h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(45px, 6vw, 70px);
+
+    line-height: 1.08;
+
+    margin: 18px 0 25px;
+
+}
+
+
+.courses-hero h1 span {
+
+    display: block;
+
+    color: var(--gold-light);
+
+}
+
+
+.courses-hero p {
+
+    max-width: 680px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size: 17px;
+
+}
+
+
+.courses-hero-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 35px;
+
+}
+
+
+.hero-text-link {
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.hero-text-link:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+/* =========================================================
+   PROGRAM FILTER
+========================================================= */
+
+.program-section {
+
+    background: white;
+
+}
+
+
+.program-filter {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.program-filter-btn {
+
+    padding:
+        11px 20px;
+
+    border:
+        1px solid
+        var(--gray-200);
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: var(--gray-500);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        all .25s ease;
+
+}
+
+
+.program-filter-btn:hover {
+
+    border-color:
+        var(--gold);
+
+    color:
+        var(--navy-900);
+
+}
+
+
+.program-filter-btn.active {
+
+    background:
+        var(--navy-900);
+
+    border-color:
+        var(--navy-900);
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(7,26,51,.15);
+
+}
+
+
+/* =========================================================
+   COURSE GRID
+========================================================= */
+
+.course-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.course-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 430px;
+
+    border:
+        1px solid
+        var(--gray-200);
+
+    border-radius: 16px;
+
+    background: white;
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    animation:
+        courseAppear .5s ease both;
+
+}
+
+
+@keyframes courseAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.course-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--shadow-lg);
+
+}
+
+
+.course-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 4px;
+
+    background:
+        var(--gold);
+
+}
+
+
+/* ---------------------------------------------------------
+   CARD TOP
+--------------------------------------------------------- */
+
+.course-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        25px 25px 10px;
+
+}
+
+
+.course-program {
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.course-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        var(--navy-900);
+
+    color:
+        var(--gold-light);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 24px;
+
+}
+
+
+/* ---------------------------------------------------------
+   CARD BODY
+--------------------------------------------------------- */
+
+.course-card-body {
+
+    flex: 1;
+
+    padding:
+        10px 25px 25px;
+
+}
+
+
+.course-category {
+
+    color: var(--gray-400);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.course-card h3 {
+
+    margin:
+        8px 0 12px;
+
+    color:
+        var(--navy-900);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 27px;
+
+}
+
+
+.course-card-body > p {
+
+    color:
+        var(--gray-500);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ---------------------------------------------------------
+   META
+--------------------------------------------------------- */
+
+.course-meta {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        var(--gray-200);
+
+}
+
+
+.course-meta div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.course-meta span {
+
+    color:
+        var(--gray-400);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.course-meta strong {
+
+    color:
+        var(--navy-900);
+
+    font-size: 11px;
+
+}
+
+
+/* ---------------------------------------------------------
+   FEATURES
+--------------------------------------------------------- */
+
+.course-features {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 18px;
+
+}
+
+
+.course-features span {
+
+    padding:
+        5px 8px;
+
+    border-radius: 5px;
+
+    background:
+        var(--off-white);
+
+    color:
+        var(--gray-500);
+
+    font-size: 9px;
+
+}
+
+
+/* ---------------------------------------------------------
+   CARD FOOTER
+--------------------------------------------------------- */
+
+.course-card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        17px 25px;
+
+    border-top:
+        1px solid
+        var(--gray-200);
+
+}
+
+
+.course-card-footer > span {
+
+    color:
+        var(--gray-400);
+
+    font-family:
+        monospace;
+
+    font-size: 9px;
+
+}
+
+
+.course-link {
+
+    color:
+        var(--navy-900);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.course-link:hover {
+
+    color: var(--gold);
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.course-empty {
+
+    display: none;
+
+    padding: 70px;
+
+    text-align: center;
+
+}
+
+
+.course-empty.show {
+
+    display: block;
+
+}
+
+
+.course-empty h3 {
+
+    color:
+        var(--navy-900);
+
+}
+
+
+.course-empty p {
+
+    color:
+        var(--gray-500);
+
+}
+
+
+/* =========================================================
+   ACADEMIC MODEL
+========================================================= */
+
+.academic-model {
+
+    background:
+        var(--off-white);
+
+}
+
+
+.academic-model-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.academic-model-content h2 {
+
+    max-width: 620px;
+
+    margin:
+        15px 0 25px;
+
+    color:
+        var(--navy-900);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 47px;
+
+    line-height: 1.15;
+
+}
+
+
+.academic-model-content h2 span {
+
+    color:
+        var(--gold);
+
+}
+
+
+.academic-model-content p {
+
+    max-width: 580px;
+
+    color:
+        var(--gray-500);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* Steps */
+
+.academic-model-steps {
+
+    padding: 15px 0;
+
+}
+
+
+.model-step {
+
+    display: flex;
+
+    gap: 20px;
+
+    padding: 23px 0;
+
+    border-bottom:
+        1px solid
+        var(--gray-200);
+
+}
+
+
+.model-step:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.model-step > span {
+
+    flex-shrink: 0;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--navy-900);
+
+    color:
+        var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.model-step h3 {
+
+    color:
+        var(--navy-900);
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.model-step p {
+
+    color:
+        var(--gray-500);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   DIGITAL PORTAL
+========================================================= */
+
+.course-portal {
+
+    padding:
+        100px 0;
+
+    background:
+        white;
+
+}
+
+
+.portal-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr .8fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding:
+        65px;
+
+    border-radius: 20px;
+
+    background:
+        var(--navy-900);
+
+    color: white;
+
+}
+
+
+.portal-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    right: -200px;
+
+    top: -200px;
+
+    border:
+        1px solid
+        rgba(201,162,39,.2);
+
+    border-radius: 50%;
+
+}
+
+
+.portal-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.portal-content > span {
+
+    color:
+        var(--gold-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.portal-content h2 {
+
+    margin:
+        15px 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 44px;
+
+    line-height: 1.15;
+
+}
+
+
+.portal-content p {
+
+    max-width: 570px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+.portal-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.portal-link {
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.portal-link:hover {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* Portal screen */
+
+.portal-visual {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.portal-screen {
+
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+.screen-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.1);
+
+}
+
+
+.screen-header span {
+
+    color:
+        var(--gold-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.screen-header small {
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 8px;
+
+}
+
+
+.screen-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.screen-row:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.screen-row span {
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 11px;
+
+}
+
+
+.screen-row strong {
+
+    color: white;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.courses-cta {
+
+    padding:
+        100px 0;
+
+    text-align: center;
+
+    background:
+        var(--off-white);
+
+}
+
+
+.courses-cta-content {
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+
+.courses-cta-content > span {
+
+    color:
+        var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.courses-cta h2 {
+
+    margin:
+        15px 0;
+
+    color:
+        var(--navy-900);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 48px;
+
+}
+
+
+.courses-cta p {
+
+    margin-bottom: 30px;
+
+    color:
+        var(--gray-500);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .course-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .academic-model-grid {
+
+        gap: 50px;
+
+    }
+
+
+    .portal-card {
+
+        gap: 40px;
+
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .course-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .academic-model-grid,
+    .portal-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .academic-model-content h2 {
+
+        font-size: 40px;
+
+    }
+
+
+    .portal-card {
+
+        padding: 45px 30px;
+
+    }
+
+
+    .portal-content h2 {
+
+        font-size: 38px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .courses-hero-content {
+
+        padding:
+            75px 0;
+
+    }
+
+
+    .courses-hero h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .courses-hero-actions {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .program-filter {
+
+        justify-content: flex-start;
+
+    }
+
+
+    .program-filter-btn {
+
+        font-size: 11px;
+
+        padding:
+            9px 14px;
+
+    }
+
+
+    .course-card {
+
+        min-height: auto;
+
+    }
+
+
+    .portal-actions {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .courses-cta h2 {
+
+        font-size: 40px;
+
+    }
+
+}
