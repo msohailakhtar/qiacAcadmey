@@ -1,15 +1,402 @@
+/* =========================================================
+   QIAC ACADEMY
+   PREMIUM RESPONSIVE NAVBAR
+   ---------------------------------------------------------
+   Version: 2.1
+
+   Features:
+   • Premium academic navigation
+   • Sticky navbar
+   • Scroll shadow
+   • Responsive desktop/tablet/mobile
+   • Working mobile menu
+   • Animated hamburger → X
+   • Active page indicator
+   • Admissions CTA
+   • Touch-friendly mobile controls
+========================================================= */
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom:
+        1px solid var(--gray-200);
+
+    transition:
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
 /* ---------------------------------------------------------
-   MOBILE BUTTON
+   SCROLLED HEADER
 --------------------------------------------------------- */
+
+.site-header.scrolled {
+
+    box-shadow:
+        0 8px 30px rgba(7, 26, 51, 0.10);
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    position: relative;
+
+    width: min(
+        calc(100% - 40px),
+        var(--container)
+    );
+
+    min-height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+
+}
+
+
+/* ---------------------------------------------------------
+   BRAND LOGO
+--------------------------------------------------------- */
+
+.brand-logo {
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    background:
+        var(--navy-900);
+
+    color:
+        var(--gold);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 15px rgba(7, 26, 51, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.brand:hover .brand-logo {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(7, 26, 51, 0.20);
+
+}
+
+
+/* ---------------------------------------------------------
+   BRAND TEXT
+--------------------------------------------------------- */
+
+.brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    line-height: 1.05;
+
+}
+
+
+/* ---------------------------------------------------------
+   BRAND NAME
+--------------------------------------------------------- */
+
+.brand-name {
+
+    color:
+        var(--navy-900);
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* ---------------------------------------------------------
+   BRAND SUBTITLE
+--------------------------------------------------------- */
+
+.brand-subtitle {
+
+    margin-top: 5px;
+
+    color:
+        var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+
+}
+
+
+/* ---------------------------------------------------------
+   STANDARD NAV LINK
+--------------------------------------------------------- */
+
+.nav-links a {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 28px 0;
+
+    color:
+        var(--gray-700);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   LINK HOVER
+--------------------------------------------------------- */
+
+.nav-links a:not(.nav-admission-btn):hover {
+
+    color:
+        var(--navy-900);
+
+}
+
+
+/* =========================================================
+   NAV LINK UNDERLINE
+========================================================= */
+
+.nav-links a:not(.nav-admission-btn)::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 20px;
+
+    width: 0;
+
+    height: 2px;
+
+    background:
+        var(--gold);
+
+    border-radius: 2px;
+
+    transition:
+        width 0.25s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   HOVER + ACTIVE UNDERLINE
+--------------------------------------------------------- */
+
+.nav-links a:not(.nav-admission-btn):hover::after,
+.nav-links a:not(.nav-admission-btn).active::after {
+
+    width: 100%;
+
+}
+
+
+/* ---------------------------------------------------------
+   ACTIVE PAGE
+--------------------------------------------------------- */
+
+.nav-links a.active {
+
+    color:
+        var(--navy-900);
+
+}
+
+
+/* =========================================================
+   ADMISSIONS BUTTON
+========================================================= */
+
+.nav-admission-btn {
+
+    padding:
+        11px 19px !important;
+
+    border-radius: 7px;
+
+    background:
+        var(--navy-900);
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 5px 15px rgba(7, 26, 51, 0.15);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------------------------------------------------------
+   ADMISSIONS HOVER
+--------------------------------------------------------- */
+
+.nav-admission-btn:hover {
+
+    background:
+        var(--gold);
+
+    color:
+        var(--navy-900) !important;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(201, 162, 39, 0.25);
+
+}
+
+
+/* ---------------------------------------------------------
+   REMOVE UNDERLINE FROM CTA
+--------------------------------------------------------- */
+
+.nav-admission-btn::after {
+
+    display: none !important;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 
 .mobile-menu-btn {
 
     width: 44px;
+
     height: 44px;
 
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     flex-direction: column;
@@ -18,11 +405,16 @@
 
     padding: 0;
 
-    border: 1px solid var(--gray-200);
+    border:
+        1px solid var(--gray-200);
 
     border-radius: 8px;
 
-    background: #ffffff;
+    background:
+        #ffffff;
+
+    color:
+        var(--navy-900);
 
     cursor: pointer;
 
@@ -30,25 +422,66 @@
 
     z-index: 1100;
 
+    flex-shrink: 0;
+
     touch-action: manipulation;
 
     -webkit-tap-highlight-color: transparent;
 
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
 }
 
 
-/* Hamburger lines */
+/* ---------------------------------------------------------
+   MOBILE BUTTON HOVER
+--------------------------------------------------------- */
+
+.mobile-menu-btn:hover {
+
+    background:
+        var(--off-white);
+
+    border-color:
+        var(--gold);
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE BUTTON FOCUS
+--------------------------------------------------------- */
+
+.mobile-menu-btn:focus-visible {
+
+    outline:
+        2px solid var(--gold);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   HAMBURGER LINES
+========================================================= */
 
 .mobile-menu-btn span {
 
     display: block;
 
     width: 20px;
+
     height: 2px;
 
     border-radius: 10px;
 
-    background: var(--navy-900);
+    background:
+        var(--navy-900);
 
     transition:
         transform 0.3s ease,
@@ -57,7 +490,9 @@
 }
 
 
-/* Hamburger → X */
+/* =========================================================
+   HAMBURGER → X
+========================================================= */
 
 .mobile-menu-btn.open span:nth-child(1) {
 
@@ -82,3 +517,336 @@
         rotate(-45deg);
 
 }
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-links {
+
+        gap: 18px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    /* -----------------------------------------------------
+       NAVBAR
+    ----------------------------------------------------- */
+
+    .navbar {
+
+        min-height: 78px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE MENU BUTTON
+    ----------------------------------------------------- */
+
+    .mobile-menu-btn {
+
+        display: flex;
+
+    }
+
+
+    /* =====================================================
+       MOBILE NAVIGATION PANEL
+    ===================================================== */
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 78px;
+
+        left: 0;
+
+        right: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding:
+            12px 20px 20px;
+
+        background:
+            rgba(255, 255, 255, 0.98);
+
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+
+        border-bottom:
+            1px solid var(--gray-200);
+
+        box-shadow:
+            0 15px 30px rgba(7, 26, 51, 0.10);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+            translateY(-10px);
+
+        transition:
+            opacity 0.25s ease,
+            visibility 0.25s ease,
+            transform 0.25s ease;
+
+        z-index: 1050;
+
+    }
+
+
+    /* =====================================================
+       OPEN MOBILE NAVIGATION
+    ===================================================== */
+
+    .nav-links.show {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    /* =====================================================
+       MOBILE NAV LINKS
+    ===================================================== */
+
+    .nav-links a {
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+        padding:
+            14px 5px;
+
+        font-size: 13px;
+
+        border-bottom:
+            1px solid rgba(227, 231, 237, 0.65);
+
+    }
+
+
+    /* -----------------------------------------------------
+       LAST NORMAL LINK
+    ----------------------------------------------------- */
+
+    .nav-links a:not(.nav-admission-btn):last-of-type {
+
+        border-bottom:
+            none;
+
+    }
+
+
+    /* -----------------------------------------------------
+       REMOVE DESKTOP UNDERLINE
+    ----------------------------------------------------- */
+
+    .nav-links a:not(.nav-admission-btn)::after {
+
+        display: none;
+
+    }
+
+
+    /* =====================================================
+       MOBILE ACTIVE LINK
+    ===================================================== */
+
+    .nav-links a:not(.nav-admission-btn).active {
+
+        color:
+            var(--gold);
+
+        font-weight: 800;
+
+    }
+
+
+    /* =====================================================
+       MOBILE ADMISSIONS BUTTON
+    ===================================================== */
+
+    .nav-admission-btn {
+
+        width: 100%;
+
+        margin-top: 10px;
+
+        padding:
+            13px 16px !important;
+
+        text-align: center;
+
+        justify-content: center;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .navbar {
+
+        width:
+            calc(100% - 30px);
+
+    }
+
+
+    .brand {
+
+        gap: 9px;
+
+    }
+
+
+    .brand-logo {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 23px;
+
+        border-radius: 9px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 17px;
+
+        letter-spacing: 1.2px;
+
+    }
+
+
+    .brand-subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 1.6px;
+
+    }
+
+
+    .mobile-menu-btn {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .nav-links {
+
+        top: 78px;
+
+        padding:
+            10px 15px 18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .brand-text {
+
+        display: none;
+
+    }
+
+
+    .navbar {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .site-header,
+    .brand-logo,
+    .nav-links a,
+    .nav-admission-btn,
+    .mobile-menu-btn,
+    .mobile-menu-btn span,
+    .nav-links {
+
+        transition:
+            none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR END
+========================================================= */
